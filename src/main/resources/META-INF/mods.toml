@@ -2,42 +2,42 @@ modLoader="javafml"
 loaderVersion="[40,)"
 license="GNU GPLv3"
 [[mods]]
-modId="thethirdswan_supplementaries"
+modId="thethirdswan_subsidiaries"
 version="0.0.1"
 displayName="The Third Swan's HTFC Supplementaries"
-displayURL="https://github.com/thethirdswan/thethirdswan_supplementaries"
-issueTrackerURL="https://github.com/thethirdswan/thethirdswan_supplementaries/issues"
+displayURL="https://github.com/thethirdswan/thethirdswan_subsidiaries"
+issueTrackerURL="https://github.com/thethirdswan/thethirdswan_subsidiaries/issues"
 #logoFile="examplemod.png" #optional
 authors="The Third Swan"
 displayTest="MATCH_VERSION"
 description='''
 Adds various QoL items for mods included in Hardrock TerraFirmaCraft!
 '''
-[[dependencies.thethirdswan_supplementaries]]
+[[dependencies.thethirdswan_subsidiaries]]
 modId="forge"
 mandatory=true
 versionRange="[40,)"
 ordering="NONE"
 side="BOTH"
-[[dependencies.thethirdswan_supplementaries]]
+[[dependencies.thethirdswan_subsidiaries]]
 modId="minecraft"
 mandatory=true
 versionRange="[1.18.2,)"
 ordering="NONE"
 side="BOTH"
-[[dependencies.thethirdswan_supplementaries]]
+[[dependencies.thethirdswan_subsidiaries]]
 modId="pneumaticcraft"
 mandatory=true
-versionRange="[3.6.4,)"
+versionRange="[1.18.2-3.6.4-45,)"
 ordering="NONE"
 side="CLIENT"
-[[dependencies.thethirdswan_supplementaries]]
+[[dependencies.thethirdswan_subsidiaries]]
 modId="tfc"
 mandatory=true
 versionRange="[2.2.33,)"
 ordering="NONE"
 side="CLIENT"
-[[dependencies.thethirdswan_supplementaries]]
+[[dependencies.thethirdswan_subsidiaries]]
 modId="compressedcreativity"
 mandatory=true
 versionRange="[0.1.8,)"

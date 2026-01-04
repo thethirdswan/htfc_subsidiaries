@@ -6,10 +6,10 @@ plugins {
 }
 
 version = 0
-group = "com.thethirdswan.thethirdswan_supplementaries"
+group = "com.thethirdswan.thethirdswan_subsidiaries"
 
 base {
-    archivesName = "thethirdswan_supplementaries"
+    archivesName = "thethirdswan_subsidiaries"
 }
 
 // Mojang ships Java 17 to end users in 1.18+, so your mod should target Java 17.
@@ -78,7 +78,7 @@ minecraft {
             property 'forge.enabledGameTestNamespaces', mod_id
 
             mods {
-                thethirdswan_supplementaries {
+                thethirdswan_subsidiaries {
                     source sourceSets.main
                 }
             }
@@ -154,6 +154,8 @@ dependencies {
 	implementation fg.deobf("curse.maven:pneumaticcraft-repressurized-281849:4922258")
 	implementation fg.deobf("curse.maven:terrafirmacraft-302973:5065452")
 	implementation fg.deobf("curse.maven:compressedcreativity-549381:4792468")
+	implementation fg.deobf("curse.maven:create-328085:4762214")
+	implementation fg.deobf("curse.maven:patchouli-306770:3729975")
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.
@@ -179,7 +181,7 @@ tasks.named('processResources', ProcessResources).configure {
 tasks.named('jar', Jar).configure {
     manifest {
         attributes([
-                'Specification-Title'     : "thethirdswan_supplementaries",
+                'Specification-Title'     : "thethirdswan_subsidiaries",
                 'Specification-Vendor'    : "thethirdswan",
                 'Specification-Version'   : '1', // We are version 1 of ourselves
                 'Implementation-Title'    : project.name,

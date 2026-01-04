@@ -1,6 +1,6 @@
-package com.thethirdswan.thethirdswan_supplementaries.items;
+package com.thethirdswan.thethirdswan_subsidiaries.items;
 
-import com.thethirdswan.thethirdswan_supplementaries.Main;
+import com.thethirdswan.thethirdswan_subsidiaries.Main;
 
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
@@ -14,7 +14,7 @@ import net.minecraftforge.registries.DeferredRegister;
 
 public class Registrate {
 	public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS,
-			"thethirdswan_supplementaries");
+			"thethirdswan_subsidiaries");
 
 	public static void init() {
 		IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
@@ -25,5 +25,5 @@ public class Registrate {
 			.register("TEMPERATURE_REGULATOR_UPGRADE", () -> new Item(new Item.Properties().tab(Main.ITEM_GROUP)));
 
 	public static final TagKey<Item> PNC_UPGRADES = TagKey.create(Registry.ITEM_REGISTRY,
-			new ResourceLocation("thethirdswan_supplementaries", "pnc_upgrades"));
+			new ResourceLocation("thethirdswan_subsidiaries", "pnc_upgrades"));
 }

@@ -1,27 +1,8 @@
 1.18.x Changelog
 40.3
 ====
- - 40.3.12 Migrate to Github Actions
- - 40.3.11 Fix Material#isFlammable not being accounted for in flammability (#10573)
- - 40.3.10 Fix a corner case where the UMLB can not extract a version from a library. (#8967) (#10522)
-           Co-authored-by: Marc Hermans <marc.hermans@ldtteam.com>
- - 40.3.9  Add '#forge:chorus_additionally_grows_on' tag for similar mechanics to '#minecraft:azalea_grows_on' but for chorus (#10465)
- - 40.3.8  Speed up mod annotation scanning by ~30% (#10473)
-           Co-authored-by: LexManos <LexManos@gmail.com>
- - 40.3.7  Fix continuing to use items after dropping or when a shield breaks (#10383)
-           Fixes MC-231097 and MC-168573
-           Cache this.useItem before running item break logic, Fixes #10344
- - 40.3.6  Backport even more future ResourceLocation methods (#10431)
- - 40.3.5  Ensure NetworkConstants is loaded before mod construction (#10449)
- - 40.3.4  Add `clientSideOnly` feature to mods.toml (#10085) (backport of #9804 to 1.20.1) (#10368)
-           Co-authored-by: Paint_Ninja <PaintNinja@users.noreply.github.com>
- - 40.3.3  Fix incorrect method reference in TntBlock.explode() (#10334)
- - 40.3.2  Fix issues in VillagerTrades.EmeraldsForVillagerTypeItem related to custom Villager Types (#10361)
-           Add VillagerType#registerBiomeType
-           Co-authored-by: Joseph T. McQuigg <J.T.McQuigg12@gmail.com>
- - 40.3.1  Fix non-passengers being tickable without checking canUpdate() (#10307)
- - 40.3.0  1.18.2 RB 3
-           https://forums.minecraftforge.net/topic/149549-forge-403-minecraft-1182/
+ - 40.3.0 1.18.2 RB 3
+          https://forums.minecraftforge.net/topic/149549-forge-403-minecraft-1182/
 
 40.2
 ====

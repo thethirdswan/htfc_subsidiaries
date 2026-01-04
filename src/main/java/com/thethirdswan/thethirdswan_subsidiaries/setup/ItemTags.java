@@ -1,6 +1,6 @@
-package com.thethirdswan.thethirdswan_supplementaries.setup;
+package com.thethirdswan.thethirdswan_subsidiaries.setup;
 
-import com.thethirdswan.thethirdswan_supplementaries.items.Registrate;
+import com.thethirdswan.thethirdswan_subsidiaries.items.Registrate;
 
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.tags.BlockTagsProvider;
@@ -10,7 +10,7 @@ import net.minecraftforge.common.data.ExistingFileHelper;
 
 public class ItemTags extends ItemTagsProvider {
 	public ItemTags(DataGenerator generator, BlockTagsProvider blockTags, ExistingFileHelper helper) {
-		super(generator, blockTags, "thethirdswan_supplementaries", helper);
+		super(generator, blockTags, "thethirdswan_subsidiaries", helper);
 	}
 	
 	@Override
@@ -20,6 +20,6 @@ public class ItemTags extends ItemTagsProvider {
 	
 	@Override
 	public String getName() {
-		return "The Third Swan Supplementaries Item Tags";
+		return "The Third Swan Subsidiaries Item Tags";
 	}
 }

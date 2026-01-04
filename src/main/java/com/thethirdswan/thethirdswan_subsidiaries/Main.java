@@ -1,7 +1,7 @@
-package com.thethirdswan.thethirdswan_supplementaries;
+package com.thethirdswan.thethirdswan_subsidiaries;
 
 import com.mojang.logging.LogUtils;
-import com.thethirdswan.thethirdswan_supplementaries.items.Registrate;
+import com.thethirdswan.thethirdswan_subsidiaries.items.Registrate;
 
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
@@ -22,7 +22,7 @@ import org.slf4j.Logger;
 import java.util.stream.Collectors;
 
 // The value here should match an entry in the META-INF/mods.toml file
-@Mod("thethirdswan_supplementaries")
+@Mod("thethirdswan_subsidiaries")
 public class Main
 {
     // Directly reference a slf4j logger
@@ -83,7 +83,7 @@ public class Main
         }
     }
     
-    public static final CreativeModeTab ITEM_GROUP = new CreativeModeTab("The Third Swan's Supplementaries") {
+    public static final CreativeModeTab ITEM_GROUP = new CreativeModeTab("The Third Swan's Subsidiaries") {
     	@Override
     	public ItemStack makeIcon() {
     		return new ItemStack(Registrate.TEMPERATURE_REGULATOR_UPGRADE.get());

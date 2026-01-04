@@ -1,13 +1,13 @@
-package com.thethirdswan.thethirdswan_supplementaries.setup;
+package com.thethirdswan.thethirdswan_subsidiaries.setup;
 
-import com.thethirdswan.thethirdswan_supplementaries.items.Registrate;
+import com.thethirdswan.thethirdswan_subsidiaries.items.Registrate;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
 public class ItemModels extends ItemModelProvider {
 	public ItemModels(DataGenerator generator, ExistingFileHelper existingFileHelper) {
-		super(generator, "thethirdswan_supplementaries", existingFileHelper);
+		super(generator, "thethirdswan_subsidiaries", existingFileHelper);
 	}
 	
 	@Override

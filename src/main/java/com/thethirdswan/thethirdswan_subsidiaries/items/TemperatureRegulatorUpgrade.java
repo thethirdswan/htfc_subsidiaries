@@ -1,4 +1,4 @@
-package com.thethirdswan.thethirdswan_supplementaries.items;
+package com.thethirdswan.thethirdswan_subsidiaries.items;
 
 import net.minecraft.world.item.Item;
 import java.util.function.Supplier;
