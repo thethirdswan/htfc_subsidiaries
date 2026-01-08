@@ -4,7 +4,7 @@ license="GNU GPLv3"
 [[mods]]
 modId="thethirdswan_subsidiaries"
 version="0.0.1"
-displayName="The Third Swan's HTFC Supplementaries"
+displayName="The Third Swan's HTFC Subsidiaries"
 displayURL="https://github.com/thethirdswan/thethirdswan_subsidiaries"
 issueTrackerURL="https://github.com/thethirdswan/thethirdswan_subsidiaries/issues"
 #logoFile="examplemod.png" #optional

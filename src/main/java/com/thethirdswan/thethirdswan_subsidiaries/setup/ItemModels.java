@@ -2,6 +2,9 @@ package com.thethirdswan.thethirdswan_subsidiaries.setup;
 
 import com.thethirdswan.thethirdswan_subsidiaries.items.Registrate;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.Item;
+import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
@@ -12,8 +15,15 @@ public class ItemModels extends ItemModelProvider {
 	
 	@Override
 	protected void registerModels() {
-		withExistingParent(Registrate.TEMPERATURE_REGULATOR_UPGRADE.getId().getPath(), modLoc("items/temperature_regulator_upgrade"));
-		singleTexture(Registrate.TEMPERATURE_REGULATOR_UPGRADE.getId().getPath(), mcLoc("item/generated"), modLoc("item/temperature_regulator_upgrade"));
+//		withExistingParent(Registrate.TEMPERATURE_REGULATOR_UPGRADE.getId().getPath(), mcLoc("item/generated"));
+//		singleTexture(Registrate.TEMPERATURE_REGULATOR_UPGRADE.getId().getPath(), mcLoc("item/generated"), modLoc("models/item/temperature_regulator"));
+		pncUpgradesModel(Registrate.TEMPERATURE_REGULATOR_UPGRADE.get());
 	}
-	
+
+	private ItemModelBuilder pncUpgradesModel(Item item) {
+		return withExistingParent(item.getRegistryName().getPath(),
+				new ResourceLocation("item/generated")).texture("layer1",
+				new ResourceLocation("thethirdswan_subsidiaries", "item/upgrades/" + item.getRegistryName().getPath()))
+				.texture("layer0", new ResourceLocation("pneumaticcraft", "item/upgrade_matrix"));
+    }
 }

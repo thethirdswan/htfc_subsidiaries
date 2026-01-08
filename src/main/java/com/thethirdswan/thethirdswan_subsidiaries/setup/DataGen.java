@@ -11,6 +11,7 @@ public class DataGen {
     public static void gatherData(GatherDataEvent event) {
         DataGenerator generator = event.getGenerator();
         if (event.includeServer()) {
+            generator.addProvider(new Recipes(generator));
             BlockTags blockTags = new BlockTags(generator, event.getExistingFileHelper());
             generator.addProvider(blockTags);
             generator.addProvider(new ItemTags(generator, blockTags, event.getExistingFileHelper()));

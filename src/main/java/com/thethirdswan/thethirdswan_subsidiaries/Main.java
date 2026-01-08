@@ -39,6 +39,8 @@ public class Main
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
+
+        Registrate.init();
     }
 
     private void setup(final FMLCommonSetupEvent event)
@@ -81,9 +83,11 @@ public class Main
             // Register a new block here
             LOGGER.info("HELLO from Register Block");
         }
+
+
     }
     
-    public static final CreativeModeTab ITEM_GROUP = new CreativeModeTab("The Third Swan's Subsidiaries") {
+    public static final CreativeModeTab ITEM_GROUP = new CreativeModeTab("thethirdswan_subsidiaries") {
     	@Override
     	public ItemStack makeIcon() {
     		return new ItemStack(Registrate.TEMPERATURE_REGULATOR_UPGRADE.get());

@@ -22,7 +22,7 @@ public class Registrate {
 	}
 
 	public static final RegistryObject<Item> TEMPERATURE_REGULATOR_UPGRADE = ITEMS
-			.register("TEMPERATURE_REGULATOR_UPGRADE", () -> new Item(new Item.Properties().tab(Main.ITEM_GROUP)));
+			.register("temperature_regulator_upgrade", () -> new Item(new Item.Properties().tab(Main.ITEM_GROUP)));
 
 	public static final TagKey<Item> PNC_UPGRADES = TagKey.create(Registry.ITEM_REGISTRY,
 			new ResourceLocation("thethirdswan_subsidiaries", "pnc_upgrades"));
