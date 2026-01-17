@@ -15,9 +15,7 @@ public class ItemModels extends ItemModelProvider {
 	
 	@Override
 	protected void registerModels() {
-//		withExistingParent(Registrate.TEMPERATURE_REGULATOR_UPGRADE.getId().getPath(), mcLoc("item/generated"));
-//		singleTexture(Registrate.TEMPERATURE_REGULATOR_UPGRADE.getId().getPath(), mcLoc("item/generated"), modLoc("models/item/temperature_regulator"));
-		pncUpgradesModel(Registrate.TEMPERATURE_REGULATOR_UPGRADE.get());
+        pncUpgradesModel(Registrate.TEMPERATURE_REGULATOR_UPGRADE.get());
 	}
 
 	private ItemModelBuilder pncUpgradesModel(Item item) {

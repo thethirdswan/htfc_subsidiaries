@@ -13,6 +13,6 @@ public class LanguageProviders extends LanguageProvider {
 	@Override
 	protected void addTranslations() {
 		add("itemGroup.thethirdswan_subsidiaries", "The Third Swan's Subsidiaries");
-		add(Registrate.TEMPERATURE_REGULATOR_UPGRADE.get(), "Temperature Regulator Upgrade");		
+		add(Registrate.TEMPERATURE_REGULATOR_UPGRADE.get(), "Temperature Regulator Upgrade");
 	}
 }

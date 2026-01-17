@@ -3,10 +3,10 @@ package com.thethirdswan.thethirdswan_subsidiaries;
 import com.mojang.logging.LogUtils;
 import com.thethirdswan.thethirdswan_subsidiaries.items.Registrate;
 
+import com.thethirdswan.thethirdswan_subsidiaries.items.pnc.PNCUpgradesSetup;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -45,9 +45,7 @@ public class Main
 
     private void setup(final FMLCommonSetupEvent event)
     {
-        // some preinit code
-        LOGGER.info("HELLO FROM PREINIT");
-        LOGGER.info("DIRT BLOCK >> {}", Blocks.DIRT.getRegistryName());
+        event.enqueueWork(PNCUpgradesSetup::init);
     }
 
     private void enqueueIMC(final InterModEnqueueEvent event)
