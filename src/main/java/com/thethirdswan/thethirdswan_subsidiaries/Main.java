@@ -4,6 +4,8 @@ import com.mojang.logging.LogUtils;
 import com.thethirdswan.thethirdswan_subsidiaries.items.Registrate;
 
 import com.thethirdswan.thethirdswan_subsidiaries.items.pnc.PNCUpgradesSetup;
+import com.thethirdswan.thethirdswan_subsidiaries.items.pnc.UpgradeHandlers;
+import me.desht.pneumaticcraft.common.pneumatic_armor.ArmorUpgradeRegistry;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
@@ -30,6 +32,7 @@ public class Main
 
     public Main()
     {
+        Registrate.init();
         // Register the setup method for modloading
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
         // Register the enqueueIMC method for modloading
@@ -40,12 +43,17 @@ public class Main
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
 
-        Registrate.init();
     }
 
     private void setup(final FMLCommonSetupEvent event)
     {
-        event.enqueueWork(PNCUpgradesSetup::init);
+        event.enqueueWork(() ->
+                {
+                    UpgradeHandlers.init();
+                    PNCUpgradesSetup.init();
+                    ArmorUpgradeRegistry.getInstance().freeze();
+                }
+        );
     }
 
     private void enqueueIMC(final InterModEnqueueEvent event)

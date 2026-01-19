@@ -158,6 +158,8 @@ dependencies {
 	implementation fg.deobf("curse.maven:compressedcreativity-549381:4792468")
 	implementation fg.deobf("curse.maven:create-328085:4762214")
 	implementation fg.deobf("curse.maven:patchouli-306770:3729975")
+    implementation fg.deobf("curse.maven:tfc-ambiental-398442:4001528")
+    implementation fg.deobf("curse.maven:curios-309927:4985315")
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.

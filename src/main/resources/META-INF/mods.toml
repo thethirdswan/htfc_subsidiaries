@@ -43,3 +43,15 @@ mandatory=true
 versionRange="[0.1.8,)"
 ordering="NONE"
 side="CLIENT"
+[[dependencies.thethirdswan_subsidiaries]]
+modId="tfcambiental"
+mandatory=true
+versionRange="[2.0.0,)"
+ordering="NONE"
+side="CLIENT"
+[[dependencies.thethirdswan_subsidiaries]]
+modId="curios"
+mandatory=true
+versionRange="[1.18.2-5.0.7.1,)"
+ordering="NONE"
+side="CLIENT"
