@@ -1,54 +1,54 @@
-[28Jan2026 17:17:18.538] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgedatauserdev, --assetIndex, 1.18, --assetsDir, C:\Users\The Third Swan\.gradle\caches\forge_gradle\assets, --gameDir, ., --fml.forgeVersion, 40.3.0, --fml.mcVersion, 1.18.2, --fml.forgeGroup, net.minecraftforge, --fml.mcpVersion, 20220404.173914, --mod, thethirdswan_subsidiaries, --all, --output, C:\Users\The Third Swan\Documents\coding project\thethirdswan_subsidiaries\src\generated\resources, --existing, C:\Users\The Third Swan\Documents\coding project\thethirdswan_subsidiaries\src\main\resources, --mixin.config, ttshtfcs.mixins.json]
-[28Jan2026 17:17:18.547] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 9.1.3+9.1.3+main.9b69c82a starting: java version 17.0.17 by Eclipse Adoptium
-[28Jan2026 17:17:18.673] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.5 Source=union:/C:/Users/The%20Third%20Swan/.gradle/caches/modules-2/files-2.1/org.spongepowered/mixin/0.8.5/9d1c0c3a304ae6697ecd477218fa61b850bf57fc/mixin-0.8.5.jar%2324!/ Service=ModLauncher Env=CLIENT
-[28Jan2026 17:17:18.927] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\The Third Swan\.gradle\caches\modules-2\files-2.1\net.minecraftforge\javafmllanguage\1.18.2-40.3.0\a1a361bd6b2c3f4b12e4793bf39d9b655c3dadab\javafmllanguage-1.18.2-40.3.0.jar is missing mods.toml file
-[28Jan2026 17:17:18.929] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\The Third Swan\.gradle\caches\modules-2\files-2.1\net.minecraftforge\lowcodelanguage\1.18.2-40.3.0\aae72bcbbb6766a45b0416eb302d82c109581436\lowcodelanguage-1.18.2-40.3.0.jar is missing mods.toml file
-[28Jan2026 17:17:18.933] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\The Third Swan\.gradle\caches\modules-2\files-2.1\net.minecraftforge\mclanguage\1.18.2-40.3.0\e9215bd3137c1ae4b2c3655947757e1d899ea57d\mclanguage-1.18.2-40.3.0.jar is missing mods.toml file
-[28Jan2026 17:17:18.935] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\The Third Swan\.gradle\caches\modules-2\files-2.1\net.minecraftforge\fmlcore\1.18.2-40.3.0\ed12aee1393d7eaa1d9249bc8b22bdb9de67a93b\fmlcore-1.18.2-40.3.0.jar is missing mods.toml file
-[28Jan2026 17:17:19.228] [main/INFO] [net.minecraftforge.fml.loading.moddiscovery.JarInJarDependencyLocator/]: Found 4 dependencies adding them to mods collection
-[28Jan2026 17:17:21.852] [main/INFO] [mixin/]: Compatibility level set to JAVA_17
-[28Jan2026 17:17:21.852] [main/ERROR] [mixin/]: Mixin config ttshtfcs.mixins.json does not specify "minVersion" property
-[28Jan2026 17:17:21.871] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgedatauserdev' with arguments [--gameDir, ., --assetsDir, C:\Users\The Third Swan\.gradle\caches\forge_gradle\assets, --assetIndex, 1.18, --mod, thethirdswan_subsidiaries, --all, --output, C:\Users\The Third Swan\Documents\coding project\thethirdswan_subsidiaries\src\generated\resources, --existing, C:\Users\The Third Swan\Documents\coding project\thethirdswan_subsidiaries\src\main\resources]
-[28Jan2026 17:17:21.953] [main/WARN] [mixin/]: Reference map 'ttshtfcs.mixin.refmap.json' for ttshtfcs.mixins.json could not be read. If this is a development environment you can ignore this message
-[28Jan2026 17:17:22.057] [main/INFO] [mixin/]: Remapping refMap mixins.compressedcreativity.refmap.json using C:\Users\The Third Swan\Documents\coding project\thethirdswan_subsidiaries/build/createSrgToMcp/output.srg
-[28Jan2026 17:17:22.058] [main/INFO] [mixin/]: Remapping refMap mixins.pneumaticcraft.refmap.json using C:\Users\The Third Swan\Documents\coding project\thethirdswan_subsidiaries/build/createSrgToMcp/output.srg
-[28Jan2026 17:17:22.075] [main/INFO] [mixin/]: Remapping refMap immersiveengineering.refmap.json using C:\Users\The Third Swan\Documents\coding project\thethirdswan_subsidiaries/build/createSrgToMcp/output.srg
-[28Jan2026 17:17:22.077] [main/INFO] [mixin/]: Remapping refMap tfc.refmap.json using C:\Users\The Third Swan\Documents\coding project\thethirdswan_subsidiaries/build/createSrgToMcp/output.srg
-[28Jan2026 17:17:22.077] [main/INFO] [mixin/]: Remapping refMap firmalife.refmap.json using C:\Users\The Third Swan\Documents\coding project\thethirdswan_subsidiaries/build/createSrgToMcp/output.srg
-[28Jan2026 17:17:22.078] [main/WARN] [mixin/]: Reference map 'tfc_ie_addon.refmap.json' for tfc_ie_addon.mixins.json could not be read. If this is a development environment you can ignore this message
-[28Jan2026 17:17:22.078] [main/INFO] [mixin/]: Remapping refMap tfcambiental.refmap.json using C:\Users\The Third Swan\Documents\coding project\thethirdswan_subsidiaries/build/createSrgToMcp/output.srg
-[28Jan2026 17:17:22.079] [main/INFO] [mixin/]: Remapping refMap flywheel.refmap.json using C:\Users\The Third Swan\Documents\coding project\thethirdswan_subsidiaries/build/createSrgToMcp/output.srg
-[28Jan2026 17:17:22.083] [main/INFO] [mixin/]: Remapping refMap flywheel.refmap.json using C:\Users\The Third Swan\Documents\coding project\thethirdswan_subsidiaries/build/createSrgToMcp/output.srg
-[28Jan2026 17:17:22.084] [main/INFO] [mixin/]: Remapping refMap curios.refmap.json using C:\Users\The Third Swan\Documents\coding project\thethirdswan_subsidiaries/build/createSrgToMcp/output.srg
-[28Jan2026 17:17:22.084] [main/INFO] [mixin/]: Remapping refMap create.refmap.json using C:\Users\The Third Swan\Documents\coding project\thethirdswan_subsidiaries/build/createSrgToMcp/output.srg
-[28Jan2026 17:17:22.085] [main/INFO] [mixin/]: Remapping refMap patchouli.refmap.json using C:\Users\The Third Swan\Documents\coding project\thethirdswan_subsidiaries/build/createSrgToMcp/output.srg
-[28Jan2026 17:17:22.385] [main/WARN] [mixin/]: Error loading class: me/jellysquid/mods/sodium/client/render/pipeline/FluidRenderer (java.lang.ClassNotFoundException: me.jellysquid.mods.sodium.client.render.pipeline.FluidRenderer)
-[28Jan2026 17:17:22.386] [main/WARN] [mixin/]: Error loading class: net/minecraftforge/resource/ResourceCacheManager (java.lang.ClassNotFoundException: net.minecraftforge.resource.ResourceCacheManager)
-[28Jan2026 17:17:22.725] [main/INFO] [net.minecraftforge.data.loading.DatagenModLoader/]: Initializing Data Gatherer for mods [thethirdswan_subsidiaries]
-[28Jan2026 17:17:22.805] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.2.0-rc.5).
-[28Jan2026 17:17:30.064] [modloading-worker-0/INFO] [net.dries007.tfc.TerraFirmaCraft/]: Initializing TerraFirmaCraft
-[28Jan2026 17:17:30.100] [modloading-worker-0/INFO] [net.dries007.tfc.TerraFirmaCraft/]: Options: Assertions Enabled = false, Boostrap = false, Test = false, Debug Logging = true
-[28Jan2026 17:17:30.100] [modloading-worker-0/INFO] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Forge mod loading, version 40.3.0, for MC 1.18.2 with MCP 20220404.173914
-[28Jan2026 17:17:30.100] [modloading-worker-0/INFO] [net.minecraftforge.common.MinecraftForge/FORGE]: MinecraftForge v40.3.0 Initialized
-[28Jan2026 17:17:30.469] [modloading-worker-0/INFO] [com.tterrag.registrate.AbstractRegistrate/]: Detected new forge version, registering events reflectively.
-[28Jan2026 17:17:30.487] [modloading-worker-0/INFO] [com.tterrag.registrate.AbstractRegistrate/]: Detected new forge version, registering events reflectively.
-[28Jan2026 17:17:30.798] [modloading-worker-0/INFO] [com.jozufozu.flywheel.backend.Backend/]: No shaders mod detected.
-[28Jan2026 17:17:34.846] [modloading-worker-0/INFO] [pneumaticcraft/]: Thirdparty integration activated for [immersiveengineering,jei,mekanism,curios,patchouli,create]
-[28Jan2026 17:17:36.778] [main/INFO] [com.thethirdswan.thethirdswan_subsidiaries.Main/]: HELLO from Register Block
-[28Jan2026 17:17:40.692] [main/INFO] [com.lumintorious.tfcambiental.TFCAmbiental/]: HELLO from Register Block
-[28Jan2026 17:17:41.329] [main/INFO] [net.minecraftforge.registries.GameData/]: Potentially Dangerous alternative prefix `tfc` for name `anvil`, expected `tfc_ie_addon`. This could be a intended override, but in most cases indicates a broken mod.
-[28Jan2026 17:17:41.393] [main/INFO] [net.minecraftforge.registries.GameData/]: Potentially Dangerous alternative prefix `minecraft` for name `milk`, expected `forge`. This could be a intended override, but in most cases indicates a broken mod.
-[28Jan2026 17:17:41.393] [main/INFO] [net.minecraftforge.registries.GameData/]: Potentially Dangerous alternative prefix `minecraft` for name `flowing_milk`, expected `forge`. This could be a intended override, but in most cases indicates a broken mod.
-[28Jan2026 17:17:41.769] [main/WARN] [net.minecraft.server.packs.VanillaPackResources/]: Assets URL 'union:/C:/Users/The%20Third%20Swan/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.18.2-40.3.0_mapped_official_1.18.2/forge-1.18.2-40.3.0_mapped_official_1.18.2-recomp.jar%2380!/assets/.mcassetsroot' uses unexpected schema
-[28Jan2026 17:17:41.770] [main/WARN] [net.minecraft.server.packs.VanillaPackResources/]: Assets URL 'union:/C:/Users/The%20Third%20Swan/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.18.2-40.3.0_mapped_official_1.18.2/forge-1.18.2-40.3.0_mapped_official_1.18.2-recomp.jar%2380!/data/.mcassetsroot' uses unexpected schema
-[28Jan2026 17:17:42.014] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Recipes
-[28Jan2026 17:17:42.047] [main/INFO] [net.minecraft.data.DataGenerator/]: Recipes finished after 32 ms
-[28Jan2026 17:17:42.047] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Block Tags
-[28Jan2026 17:17:42.047] [main/INFO] [net.minecraft.data.DataGenerator/]: Block Tags finished after 0 ms
-[28Jan2026 17:17:42.047] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: The Third Swan Subsidiaries Item Tags
-[28Jan2026 17:17:42.052] [main/INFO] [net.minecraft.data.DataGenerator/]: The Third Swan Subsidiaries Item Tags finished after 4 ms
-[28Jan2026 17:17:42.052] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Item Models: thethirdswan_subsidiaries
-[28Jan2026 17:17:42.061] [main/INFO] [net.minecraft.data.DataGenerator/]: Item Models: thethirdswan_subsidiaries finished after 9 ms
-[28Jan2026 17:17:42.061] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Languages: en_us
-[28Jan2026 17:17:42.064] [main/INFO] [net.minecraft.data.DataGenerator/]: Languages: en_us finished after 2 ms
-[28Jan2026 17:17:42.064] [main/INFO] [net.minecraft.data.DataGenerator/]: All providers took: 50 ms
+[29Jan2026 14:54:54.578] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgedatauserdev, --assetIndex, 1.18, --assetsDir, C:\Users\The Third Swan\.gradle\caches\forge_gradle\assets, --gameDir, ., --fml.forgeVersion, 40.3.0, --fml.mcVersion, 1.18.2, --fml.forgeGroup, net.minecraftforge, --fml.mcpVersion, 20220404.173914, --mod, thethirdswan_subsidiaries, --all, --output, C:\Users\The Third Swan\Documents\coding project\thethirdswan_subsidiaries\src\generated\resources, --existing, C:\Users\The Third Swan\Documents\coding project\thethirdswan_subsidiaries\src\main\resources, --mixin.config, ttshtfcs.mixins.json]
+[29Jan2026 14:54:54.580] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 9.1.3+9.1.3+main.9b69c82a starting: java version 17.0.17 by Eclipse Adoptium
+[29Jan2026 14:54:54.686] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.5 Source=union:/C:/Users/The%20Third%20Swan/.gradle/caches/modules-2/files-2.1/org.spongepowered/mixin/0.8.5/9d1c0c3a304ae6697ecd477218fa61b850bf57fc/mixin-0.8.5.jar%2324!/ Service=ModLauncher Env=CLIENT
+[29Jan2026 14:54:54.982] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\The Third Swan\.gradle\caches\modules-2\files-2.1\net.minecraftforge\javafmllanguage\1.18.2-40.3.0\a1a361bd6b2c3f4b12e4793bf39d9b655c3dadab\javafmllanguage-1.18.2-40.3.0.jar is missing mods.toml file
+[29Jan2026 14:54:54.985] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\The Third Swan\.gradle\caches\modules-2\files-2.1\net.minecraftforge\lowcodelanguage\1.18.2-40.3.0\aae72bcbbb6766a45b0416eb302d82c109581436\lowcodelanguage-1.18.2-40.3.0.jar is missing mods.toml file
+[29Jan2026 14:54:54.989] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\The Third Swan\.gradle\caches\modules-2\files-2.1\net.minecraftforge\mclanguage\1.18.2-40.3.0\e9215bd3137c1ae4b2c3655947757e1d899ea57d\mclanguage-1.18.2-40.3.0.jar is missing mods.toml file
+[29Jan2026 14:54:54.992] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\The Third Swan\.gradle\caches\modules-2\files-2.1\net.minecraftforge\fmlcore\1.18.2-40.3.0\ed12aee1393d7eaa1d9249bc8b22bdb9de67a93b\fmlcore-1.18.2-40.3.0.jar is missing mods.toml file
+[29Jan2026 14:54:55.374] [main/INFO] [net.minecraftforge.fml.loading.moddiscovery.JarInJarDependencyLocator/]: Found 4 dependencies adding them to mods collection
+[29Jan2026 14:54:57.974] [main/INFO] [mixin/]: Compatibility level set to JAVA_17
+[29Jan2026 14:54:57.974] [main/ERROR] [mixin/]: Mixin config ttshtfcs.mixins.json does not specify "minVersion" property
+[29Jan2026 14:54:58.001] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgedatauserdev' with arguments [--gameDir, ., --assetsDir, C:\Users\The Third Swan\.gradle\caches\forge_gradle\assets, --assetIndex, 1.18, --mod, thethirdswan_subsidiaries, --all, --output, C:\Users\The Third Swan\Documents\coding project\thethirdswan_subsidiaries\src\generated\resources, --existing, C:\Users\The Third Swan\Documents\coding project\thethirdswan_subsidiaries\src\main\resources]
+[29Jan2026 14:54:58.473] [main/WARN] [mixin/]: Reference map 'ttshtfcs.mixin.refmap.json' for ttshtfcs.mixins.json could not be read. If this is a development environment you can ignore this message
+[29Jan2026 14:54:58.578] [main/INFO] [mixin/]: Remapping refMap mixins.compressedcreativity.refmap.json using C:\Users\The Third Swan\Documents\coding project\thethirdswan_subsidiaries/build/createSrgToMcp/output.srg
+[29Jan2026 14:54:58.579] [main/INFO] [mixin/]: Remapping refMap mixins.pneumaticcraft.refmap.json using C:\Users\The Third Swan\Documents\coding project\thethirdswan_subsidiaries/build/createSrgToMcp/output.srg
+[29Jan2026 14:54:58.596] [main/INFO] [mixin/]: Remapping refMap immersiveengineering.refmap.json using C:\Users\The Third Swan\Documents\coding project\thethirdswan_subsidiaries/build/createSrgToMcp/output.srg
+[29Jan2026 14:54:58.597] [main/INFO] [mixin/]: Remapping refMap tfc.refmap.json using C:\Users\The Third Swan\Documents\coding project\thethirdswan_subsidiaries/build/createSrgToMcp/output.srg
+[29Jan2026 14:54:58.597] [main/INFO] [mixin/]: Remapping refMap firmalife.refmap.json using C:\Users\The Third Swan\Documents\coding project\thethirdswan_subsidiaries/build/createSrgToMcp/output.srg
+[29Jan2026 14:54:58.598] [main/WARN] [mixin/]: Reference map 'tfc_ie_addon.refmap.json' for tfc_ie_addon.mixins.json could not be read. If this is a development environment you can ignore this message
+[29Jan2026 14:54:58.599] [main/INFO] [mixin/]: Remapping refMap tfcambiental.refmap.json using C:\Users\The Third Swan\Documents\coding project\thethirdswan_subsidiaries/build/createSrgToMcp/output.srg
+[29Jan2026 14:54:58.600] [main/INFO] [mixin/]: Remapping refMap flywheel.refmap.json using C:\Users\The Third Swan\Documents\coding project\thethirdswan_subsidiaries/build/createSrgToMcp/output.srg
+[29Jan2026 14:54:58.603] [main/INFO] [mixin/]: Remapping refMap flywheel.refmap.json using C:\Users\The Third Swan\Documents\coding project\thethirdswan_subsidiaries/build/createSrgToMcp/output.srg
+[29Jan2026 14:54:58.603] [main/INFO] [mixin/]: Remapping refMap curios.refmap.json using C:\Users\The Third Swan\Documents\coding project\thethirdswan_subsidiaries/build/createSrgToMcp/output.srg
+[29Jan2026 14:54:58.604] [main/INFO] [mixin/]: Remapping refMap create.refmap.json using C:\Users\The Third Swan\Documents\coding project\thethirdswan_subsidiaries/build/createSrgToMcp/output.srg
+[29Jan2026 14:54:58.605] [main/INFO] [mixin/]: Remapping refMap patchouli.refmap.json using C:\Users\The Third Swan\Documents\coding project\thethirdswan_subsidiaries/build/createSrgToMcp/output.srg
+[29Jan2026 14:54:58.929] [main/WARN] [mixin/]: Error loading class: me/jellysquid/mods/sodium/client/render/pipeline/FluidRenderer (java.lang.ClassNotFoundException: me.jellysquid.mods.sodium.client.render.pipeline.FluidRenderer)
+[29Jan2026 14:54:58.931] [main/WARN] [mixin/]: Error loading class: net/minecraftforge/resource/ResourceCacheManager (java.lang.ClassNotFoundException: net.minecraftforge.resource.ResourceCacheManager)
+[29Jan2026 14:54:59.203] [main/INFO] [net.minecraftforge.data.loading.DatagenModLoader/]: Initializing Data Gatherer for mods [thethirdswan_subsidiaries]
+[29Jan2026 14:54:59.367] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.2.0-rc.5).
+[29Jan2026 14:55:06.486] [modloading-worker-0/INFO] [net.dries007.tfc.TerraFirmaCraft/]: Initializing TerraFirmaCraft
+[29Jan2026 14:55:06.545] [modloading-worker-0/INFO] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Forge mod loading, version 40.3.0, for MC 1.18.2 with MCP 20220404.173914
+[29Jan2026 14:55:06.545] [modloading-worker-0/INFO] [net.minecraftforge.common.MinecraftForge/FORGE]: MinecraftForge v40.3.0 Initialized
+[29Jan2026 14:55:06.547] [modloading-worker-0/INFO] [net.dries007.tfc.TerraFirmaCraft/]: Options: Assertions Enabled = false, Boostrap = false, Test = false, Debug Logging = true
+[29Jan2026 14:55:06.923] [modloading-worker-0/INFO] [com.tterrag.registrate.AbstractRegistrate/]: Detected new forge version, registering events reflectively.
+[29Jan2026 14:55:07.002] [modloading-worker-0/INFO] [com.tterrag.registrate.AbstractRegistrate/]: Detected new forge version, registering events reflectively.
+[29Jan2026 14:55:07.118] [modloading-worker-0/INFO] [com.jozufozu.flywheel.backend.Backend/]: No shaders mod detected.
+[29Jan2026 14:55:10.912] [modloading-worker-0/INFO] [pneumaticcraft/]: Thirdparty integration activated for [immersiveengineering,jei,mekanism,curios,patchouli,create]
+[29Jan2026 14:55:14.040] [main/INFO] [com.thethirdswan.thethirdswan_subsidiaries.Main/]: HELLO from Register Block
+[29Jan2026 14:55:17.646] [main/INFO] [com.lumintorious.tfcambiental.TFCAmbiental/]: HELLO from Register Block
+[29Jan2026 14:55:18.489] [main/INFO] [net.minecraftforge.registries.GameData/]: Potentially Dangerous alternative prefix `tfc` for name `anvil`, expected `tfc_ie_addon`. This could be a intended override, but in most cases indicates a broken mod.
+[29Jan2026 14:55:18.539] [main/INFO] [net.minecraftforge.registries.GameData/]: Potentially Dangerous alternative prefix `minecraft` for name `milk`, expected `forge`. This could be a intended override, but in most cases indicates a broken mod.
+[29Jan2026 14:55:18.540] [main/INFO] [net.minecraftforge.registries.GameData/]: Potentially Dangerous alternative prefix `minecraft` for name `flowing_milk`, expected `forge`. This could be a intended override, but in most cases indicates a broken mod.
+[29Jan2026 14:55:18.937] [main/WARN] [net.minecraft.server.packs.VanillaPackResources/]: Assets URL 'union:/C:/Users/The%20Third%20Swan/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.18.2-40.3.0_mapped_official_1.18.2/forge-1.18.2-40.3.0_mapped_official_1.18.2-recomp.jar%2380!/assets/.mcassetsroot' uses unexpected schema
+[29Jan2026 14:55:18.937] [main/WARN] [net.minecraft.server.packs.VanillaPackResources/]: Assets URL 'union:/C:/Users/The%20Third%20Swan/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.18.2-40.3.0_mapped_official_1.18.2/forge-1.18.2-40.3.0_mapped_official_1.18.2-recomp.jar%2380!/data/.mcassetsroot' uses unexpected schema
+[29Jan2026 14:55:19.153] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Recipes
+[29Jan2026 14:55:19.219] [main/INFO] [net.minecraft.data.DataGenerator/]: Recipes finished after 65 ms
+[29Jan2026 14:55:19.219] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Block Tags
+[29Jan2026 14:55:19.219] [main/INFO] [net.minecraft.data.DataGenerator/]: Block Tags finished after 0 ms
+[29Jan2026 14:55:19.219] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: The Third Swan Subsidiaries Item Tags
+[29Jan2026 14:55:19.228] [main/INFO] [net.minecraft.data.DataGenerator/]: The Third Swan Subsidiaries Item Tags finished after 8 ms
+[29Jan2026 14:55:19.228] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Item Models: thethirdswan_subsidiaries
+[29Jan2026 14:55:19.233] [main/INFO] [net.minecraft.data.DataGenerator/]: Item Models: thethirdswan_subsidiaries finished after 4 ms
+[29Jan2026 14:55:19.233] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Languages: en_us
+[29Jan2026 14:55:19.235] [main/INFO] [net.minecraft.data.DataGenerator/]: Languages: en_us finished after 2 ms
+[29Jan2026 14:55:19.235] [main/INFO] [net.minecraft.data.DataGenerator/]: All providers took: 82 ms

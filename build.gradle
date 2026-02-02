@@ -129,11 +129,9 @@ repositories {
 			includeGroup "curse.maven"
 		}
 	}
-	
      flatDir {
-         dir 'libs'
+         dirs 'libs'
      }
-     
 }
 
 dependencies {
@@ -155,6 +153,8 @@ dependencies {
     // This maps to ./libs/coolmod-${mc_version}-${coolmod_version}.jar
     // The group id is ignored when searching -- in this case, it is "blank"
     // implementation fg.deobf("blank:coolmod-${mc_version}:${coolmod_version}")
+
+    implementation fg.deobf("blank:tfc-ore-washing-1.18.2-forge:1.0.2")
 
 	implementation fg.deobf("curse.maven:pneumaticcraft-repressurized-281849:4922258")
 	implementation fg.deobf("curse.maven:terrafirmacraft-302973:5065452")
