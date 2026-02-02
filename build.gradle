@@ -167,8 +167,6 @@ dependencies {
     implementation fg.deobf("curse.maven:jei-238222:4593548")
     implementation fg.deobf("curse.maven:immersive-engineering-231951:4412849")
     implementation fg.deobf("curse.maven:firmalife-453394:4788653")
-//    robson's ore washing is not downloaded? is it private? UPDATE: ...it is
-//    implementation fg.deobf("curse.maven:tfc-ore-washing-959262:5043543")
     implementation fg.deobf("curse.maven:tfc-ie-crossover-830886:4931792")
 }
 
