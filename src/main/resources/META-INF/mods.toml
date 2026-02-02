@@ -1,0 +1,64 @@
+modLoader = "javafml"
+loaderVersion = "[40,)"
+license = "GNU GPLv3"
+[[mods]]
+modId = "thethirdswan_subsidiaries"
+version = "0.0.1"
+displayName = "The Third Swan's HTFC Subsidiaries"
+displayURL = "https://github.com/thethirdswan/thethirdswan_subsidiaries"
+issueTrackerURL = "https://github.com/thethirdswan/thethirdswan_subsidiaries/issues"
+#logoFile="examplemod.png" #optional
+authors = "The Third Swan"
+displayTest = "MATCH_VERSION"
+description = '''
+Adds various QoL items for mods included in Hardrock TerraFirmaCraft!
+'''
+[[dependencies.thethirdswan_subsidiaries]]
+modId = "forge"
+mandatory = true
+versionRange = "[40,)"
+ordering = "NONE"
+side = "BOTH"
+[[dependencies.thethirdswan_subsidiaries]]
+modId = "minecraft"
+mandatory = true
+versionRange = "[1.18.2,)"
+ordering = "NONE"
+side = "BOTH"
+[[dependencies.thethirdswan_subsidiaries]]
+modId = "pneumaticcraft"
+mandatory = true
+versionRange = "[1.18.2-3.6.4-45,)"
+ordering = "NONE"
+side = "CLIENT"
+[[dependencies.thethirdswan_subsidiaries]]
+modId = "tfc"
+mandatory = true
+versionRange = "[2.2.33,)"
+ordering = "NONE"
+side = "CLIENT"
+[[dependencies.thethirdswan_subsidiaries]]
+modId = "compressedcreativity"
+mandatory = true
+versionRange = "[0.1.8,)"
+ordering = "NONE"
+side = "CLIENT"
+[[dependencies.thethirdswan_subsidiaries]]
+modId = "tfcambiental"
+mandatory = true
+versionRange = "[2.0.0,)"
+ordering = "NONE"
+side = "BOTH"
+[[dependencies.thethirdswan_subsidiaries]]
+modId = "mekanism"
+mandatory = true
+versionRange = "[1.18.2-10.2.5.465,)"
+ordering = "NONE"
+side = "CLIENT"
+[[dependencies.thethirdswan_subsidiaries]]
+modId = "immersiveengineering"
+mandatory = true
+versionRange = "[1.18.2-8.4.0-161,)"
+ordering = "NONE"
+side = "CLIENT"
+# adding other mods' dependencies later, as long as it's not breaking *now*

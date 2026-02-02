@@ -1,0 +1,15 @@
+{
+  "type": "mekanism:washing",
+  "fluidInput": {
+    "amount": 5,
+    "tag": "minecraft:water"
+  },
+  "slurryInput": {
+    "amount": 1,
+    "slurry": "thethirdswan_subsidiaries:dirty_zinc"
+  },
+  "output": {
+    "slurry": "thethirdswan_subsidiaries:clean_zinc",
+    "amount": 1
+  }
+}

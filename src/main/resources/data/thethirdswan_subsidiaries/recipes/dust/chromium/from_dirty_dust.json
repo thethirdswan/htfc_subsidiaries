@@ -1,0 +1,11 @@
+{
+  "type": "mekanism:enriching",
+  "input": {
+    "ingredient": {
+      "item": "thethirdswan_subsidiaries:dust_dirty_chromium"
+    }
+  },
+  "output": {
+    "item": "thethirdswan_subsidiaries:dust_chromium"
+  }
+}
