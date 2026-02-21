@@ -1,0 +1,17 @@
+{
+  "type": "immersiveengineering:mixer",
+  "inputs": [
+    {
+      "item": "firmalife:rennet"
+    }
+  ],
+  "result": {
+    "fluid": "firmalife:curdled_yak_milk",
+    "amount": 2000
+  },
+  "fluid": {
+    "fluid": "firmalife:yak_milk",
+    "amount": 2000
+  },
+  "energy": 3200
+}

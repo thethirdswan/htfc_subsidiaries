@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "thethirdswan_subsidiaries:item/dusts/dirty/dust_dirty_nickel"
-  }
-}

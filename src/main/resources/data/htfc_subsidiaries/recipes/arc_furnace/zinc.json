@@ -1,0 +1,14 @@
+{
+  "type": "immersiveengineering:arc_furnace",
+  "results": [
+    {
+      "tag": "forge:ingot/zinc"
+    }
+  ],
+  "additives": [],
+  "input": {
+    "item": "htfc_subsidiaries:dust_zinc"
+  },
+  "time": 100,
+  "energy": 51200
+}

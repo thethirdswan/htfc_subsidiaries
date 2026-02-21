@@ -1,0 +1,16 @@
+{
+  "type": "tfc:anvil",
+  "input": {
+    "tag": "forge:ingots/wrought_iron"
+  },
+  "result": {
+    "item": "htfc_subsidiaries:wrought_iron_spindle_head"
+  },
+  "tier": 3,
+  "rules": [
+    "shrink_last",
+    "hit_second_last",
+    "shrink_third_last"
+  ],
+  "apply_forging_bonus": true
+}

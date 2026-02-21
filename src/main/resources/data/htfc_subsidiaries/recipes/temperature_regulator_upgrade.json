@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "htfc_subsidiaries",
+  "pattern": [
+    "cpc",
+    "vav",
+    "cpc"
+  ],
+  "key": {
+    "p": {
+      "tag": "forge:ingots/compressed_iron"
+    },
+    "c": {
+      "tag": "pneumaticcraft:upgrade_components"
+    },
+    "v": {
+      "item": "pneumaticcraft:vortex_tube"
+    },
+    "a": {
+      "item": "compressedcreativity:industrial_air_blower"
+    }
+  },
+  "result": {
+    "item": "htfc_subsidiaries:temperature_regulator_upgrade"
+  }
+}

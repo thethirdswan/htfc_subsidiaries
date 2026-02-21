@@ -1,0 +1,14 @@
+{
+  "type": "immersiveengineering:arc_furnace",
+  "results": [
+    {
+      "tag": "forge:ingot/aluminium"
+    }
+  ],
+  "additives": [],
+  "input": {
+    "item": "htfc_subsidiaries:dust_aluminum"
+  },
+  "time": 100,
+  "energy": 51200
+}

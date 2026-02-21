@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "htfc_subsidiaries:item/dusts/dirty/dust_dirty_bismuth"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "type": "tfc:damage_inputs_shapeless_crafting",
+  "recipe": {
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+      {
+        "item": "firmalife:pineapple_fiber"
+      },
+      {
+        "tag": "forge:spindles"
+      }
+    ],
+    "result": {
+      "item": "firmalife:pineapple_yarn",
+      "count": 8
+    }
+  }
+}

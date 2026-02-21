@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "htfc_subsidiaries:wrought_iron_spindle"
+    ]
+  },
+  "criteria": {
+    "spindle_head": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "htfc_subsidiaries:wrought_iron_spindle_head"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "htfc_subsidiaries:wrought_iron_spindle"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "spindle_head",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "type": "mekanism:crystallizing",
+  "chemicalType": "slurry",
+  "input": {
+    "amount": 200,
+    "slurry": "htfc_subsidiaries:clean_silver"
+  },
+  "output": {
+    "item": "htfc_subsidiaries:crystal_silver"
+  }
+}

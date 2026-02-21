@@ -1,0 +1,27 @@
+{
+  "type": "immersiveengineering:arc_furnace",
+  "results": [
+    {
+      "count": 2,
+      "base_ingredient": {
+        "tag": "forge:ingots/slimesteel"
+      }
+    }
+  ],
+  "additives": [
+    {
+      "tag": "forge:slimeball/sky"
+    },
+    {
+      "tag": "tconstruct:seared_brick"
+    }
+  ],
+  "input": {
+    "count": 2,
+    "base_ingredient": {
+      "tag": "forge:ingots/wrought_iron"
+    }
+  },
+  "time": 100,
+  "energy": 51200
+}

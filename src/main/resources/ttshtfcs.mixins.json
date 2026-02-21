@@ -1,6 +1,6 @@
 {
   "required": true,
-  "package": "com.thethirdswan.thethirdswan_subsidiaries.mixin",
+  "package": "com.thethirdswan.htfc_subsidiaries.mixin",
   "refmap": "ttshtfcs.mixin.refmap.json",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
