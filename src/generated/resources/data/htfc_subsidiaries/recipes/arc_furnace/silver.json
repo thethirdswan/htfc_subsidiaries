@@ -1,0 +1,14 @@
+{
+  "type": "immersiveengineering:arc_furnace",
+  "results": [
+    {
+      "tag": "forge:ingot/silver"
+    }
+  ],
+  "additives": [],
+  "input": {
+    "item": "htfc_subsidiaries:dust_silver"
+  },
+  "time": 100,
+  "energy": 51200
+}

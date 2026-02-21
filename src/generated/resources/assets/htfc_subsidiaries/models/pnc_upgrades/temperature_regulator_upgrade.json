@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer1": "htfc_subsidiaries:item/upgrades/temperature_regulator_upgrade",
+    "layer0": "pneumaticcraft:item/upgrade_matrix"
+  }
+}

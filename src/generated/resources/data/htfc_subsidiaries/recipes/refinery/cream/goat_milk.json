@@ -1,0 +1,15 @@
+{
+  "type": "immersiveengineering:refinery",
+  "result": {
+    "fluid": "firmalife:cream",
+    "amount": 100
+  },
+  "fluid": {
+    "fluid": "firmalife:goat_milk",
+    "amount": 100
+  },
+  "catalyst": {
+    "tag": "firmalife:cheesecloth"
+  },
+  "energy": 100
+}

@@ -129,6 +129,10 @@ repositories {
 			includeGroup "curse.maven"
 		}
 	}
+    maven { // BlockModelSplitter
+        name 'Jared maven'
+        url 'https://maven.blamejared.com/'
+    }
      flatDir {
          dirs 'libs'
      }
@@ -155,6 +159,9 @@ dependencies {
     // implementation fg.deobf("blank:coolmod-${mc_version}:${coolmod_version}")
 
     implementation fg.deobf("blank:tfc-ore-washing-1.18.2-forge:1.0.2")
+
+    implementation fg.deobf("blusunrize.immersiveengineering:ImmersiveEngineering:1.18.2-8.2.2-154:datagen")
+    implementation fg.deobf("blusunrize.immersiveengineering:ImmersiveEngineering:1.18.2-8.2.2-154")
 
 	implementation fg.deobf("curse.maven:pneumaticcraft-repressurized-281849:4922258")
 	implementation fg.deobf("curse.maven:terrafirmacraft-302973:5065452")
@@ -194,6 +201,8 @@ tasks.named('processResources', ProcessResources).configure {
     filesMatching(['META-INF/mods.toml', 'pack.mcmeta']) {
         expand replaceProperties + [project: project]
     }
+
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
 }
 
 // Example for how to get properties into the manifest for reading at runtime.

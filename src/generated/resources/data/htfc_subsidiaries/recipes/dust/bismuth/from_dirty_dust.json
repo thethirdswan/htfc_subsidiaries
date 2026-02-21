@@ -1,0 +1,11 @@
+{
+  "type": "mekanism:enriching",
+  "input": {
+    "ingredient": {
+      "item": "htfc_subsidiaries:dust_dirty_bismuth"
+    }
+  },
+  "output": {
+    "item": "htfc_subsidiaries:dust_bismuth"
+  }
+}

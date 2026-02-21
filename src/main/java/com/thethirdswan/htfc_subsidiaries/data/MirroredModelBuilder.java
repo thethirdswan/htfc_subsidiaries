@@ -1,6 +1,7 @@
 package com.thethirdswan.htfc_subsidiaries.data;
 
 import blusunrize.immersiveengineering.client.models.mirror.MirroredModelLoader;
+import blusunrize.immersiveengineering.data.models.NongeneratedModels;
 import com.google.gson.JsonObject;
 import net.minecraftforge.client.model.generators.CustomLoaderBuilder;
 import net.minecraftforge.client.model.generators.ModelBuilder;

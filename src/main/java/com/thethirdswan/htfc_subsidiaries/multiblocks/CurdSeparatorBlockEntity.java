@@ -1,13 +1,16 @@
 package com.thethirdswan.htfc_subsidiaries.multiblocks;
 
+import blusunrize.immersiveengineering.api.utils.shapes.CachedShapesWithTransform;
 import blusunrize.immersiveengineering.common.blocks.IEBlockInterfaces;
 import blusunrize.immersiveengineering.common.blocks.generic.PoweredMultiblockBlockEntity;
 import blusunrize.immersiveengineering.common.blocks.multiblocks.IETemplateMultiblock;
 import blusunrize.immersiveengineering.common.blocks.multiblocks.process.MultiblockProcess;
 import blusunrize.immersiveengineering.common.blocks.ticking.IEClientTickableBE;
 import blusunrize.immersiveengineering.common.register.IEContainerTypes;
+import com.mojang.datafixers.util.Pair;
 import com.thethirdswan.htfc_subsidiaries.blocks.multiblocks.HTFCSMultiblocks;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.core.NonNullList;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Player;
@@ -15,6 +18,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraftforge.fluids.FluidStack;
@@ -22,11 +26,13 @@ import net.minecraftforge.fluids.IFluidTank;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 public class CurdSeparatorBlockEntity extends PoweredMultiblockBlockEntity<CurdSeparatorBlockEntity, CurdSeparatorRecipe> implements IEBlockInterfaces.IInteractionObjectIE<CurdSeparatorBlockEntity>, IEBlockInterfaces.IBlockBounds, IEClientTickableBE, IEBlockInterfaces.ISoundBE {
     public CurdSeparatorBlockEntity(BlockEntityType<CurdSeparatorBlockEntity> type, BlockPos pos, BlockState state) {
-        super(HTFCSMultiblocks.CURD_SEPARATOR, 16000, true, type, pos, state);
+        super(CurdSeparatorMultiblock.INSTANCE, 16000, true, type, pos, state);
     }
 
     @Override
@@ -120,11 +126,6 @@ public class CurdSeparatorBlockEntity extends PoweredMultiblockBlockEntity<CurdS
     }
 
     @Override
-    public @NotNull VoxelShape getBlockBounds(@Nullable CollisionContext collisionContext) {
-        return null;
-    }
-
-    @Override
     public @Nullable CurdSeparatorBlockEntity getGuiMaster() {
         return null;
     }
@@ -134,6 +135,25 @@ public class CurdSeparatorBlockEntity extends PoweredMultiblockBlockEntity<CurdS
         return null;
     }
 
+    @NotNull
+    @Override
+    public VoxelShape getBlockBounds(@Nullable CollisionContext collisionContext) {
+        return SHAPES.get(this.posInMultiblock, Pair.of(getFacing(), getIsMirrored()));
+    }
+    public static final AABB FULL = new AABB(0.0, 0.0, 0.0, 1.0, 1.0, 1.0);
+
+    private static final CachedShapesWithTransform<BlockPos, Pair<Direction, Boolean>> SHAPES = CachedShapesWithTransform.createForMultiblock(CurdSeparatorBlockEntity::getShape);
+    private static List<AABB> getShape(BlockPos posInMultiblock){
+        final int x = posInMultiblock.getX();
+        final int y = posInMultiblock.getY();
+        final int z = posInMultiblock.getZ();
+
+        List<AABB> main = new ArrayList<>();
+
+        // Use default cube shape for now.
+        main.add(FULL);
+        return main;
+    }
     @Override
     public boolean canUseGui(Player player) {
         return false;
