@@ -3,10 +3,15 @@ package com.thethirdswan.htfc_subsidiaries.data;
 import blusunrize.immersiveengineering.api.IEProperties;
 import blusunrize.immersiveengineering.api.multiblocks.TemplateMultiblock;
 import blusunrize.immersiveengineering.common.blocks.multiblocks.IETemplateMultiblock;
+import blusunrize.immersiveengineering.data.blockstates.ExtendedBlockstateProvider;
+import blusunrize.immersiveengineering.data.models.NongeneratedModels;
+import blusunrize.immersiveengineering.data.models.SplitModelBuilder;
 import com.google.common.base.Preconditions;
 import com.mojang.logging.LogUtils;
+import com.thethirdswan.htfc_subsidiaries.blocks.multiblocks.CurdSeparatorBlock;
 import com.thethirdswan.htfc_subsidiaries.blocks.multiblocks.HTFCSMultiblocks;
 import com.thethirdswan.htfc_subsidiaries.multiblocks.CurdSeparatorMultiblock;
+import com.thethirdswan.htfc_subsidiaries.multiblocks.HTFCSMultiblockTemplate;
 import com.thethirdswan.htfc_subsidiaries.setup.HTFCSBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -16,12 +21,11 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.block.state.properties.Property;
-import net.minecraftforge.client.model.generators.BlockModelBuilder;
-import net.minecraftforge.client.model.generators.ConfiguredModel;
-import net.minecraftforge.client.model.generators.ModelFile;
-import net.minecraftforge.client.model.generators.VariantBlockStateBuilder;
+import net.minecraftforge.client.model.generators.*;
 import net.minecraftforge.client.model.generators.loaders.OBJLoaderBuilder;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.registries.ForgeRegistries;
+import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 
 import javax.annotation.Nullable;
@@ -33,137 +37,116 @@ import java.util.function.UnaryOperator;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class MultiblockStates extends ExtendedBlockstateProvider {
+public class MultiblockStates extends BlockStateProvider {
     private static final Logger LOGGER = LogUtils.getLogger();
-    public final Map<Block, ModelFile> unsplitModels = new HashMap<>();
+    private final NongeneratedModels nongeneratedModels;
+    final ExistingFileHelper exFileHelper;
 
     public MultiblockStates(DataGenerator gen, String modid, ExistingFileHelper exFileHelper) {
         super(gen, modid, exFileHelper);
+
+        this.exFileHelper = exFileHelper;
+        this.nongeneratedModels = new NongeneratedModels(gen, exFileHelper);
     }
 
     @Override
     protected void registerStatesAndModels() {
-//        createMultiblock(innerObj("models/block/curd_separator.obj"), CurdSeparatorMultiblock.INSTANCE);
         curdseparator();
     }
 
     private void curdseparator() {
-        ResourceLocation texture = modLoc("models/block/curd_separator");
+        ResourceLocation texture = modLoc("block/tank");
         ResourceLocation modelNormal = modLoc("models/block/curd_separator.obj");
         ResourceLocation modelMirrored = modLoc("models/block/curd_separator.obj");
-        BlockModelBuilder normal = multiblockModel(HTFCSBlocks.CURD_SEPARATOR.get(), modelNormal, texture, "", CurdSeparatorMultiblock.INSTANCE, false);
-        BlockModelBuilder mirrored = multiblockModel(HTFCSBlocks.CURD_SEPARATOR.get(), modelMirrored, texture, "_mirrored", CurdSeparatorMultiblock.INSTANCE, true);
+        CurdSeparatorBlock test = HTFCSMultiblocks.CURD_SEPARATOR.get();
+        BlockModelBuilder normal = multiblockModel(test, modelNormal, texture, "", CurdSeparatorMultiblock.INSTANCE, false);
+        BlockModelBuilder mirrored = multiblockModel(HTFCSMultiblocks.CURD_SEPARATOR.get(), modelMirrored, texture, "_mirrored", CurdSeparatorMultiblock.INSTANCE, true);
 
-        createMultiblock(HTFCSBlocks.CURD_SEPARATOR, normal, mirrored, texture);
+        createMultiblock(HTFCSMultiblocks.CURD_SEPARATOR.get(), normal, mirrored, texture);
     }
 
-    private void createMultiblock(Supplier<? extends Block> block, ModelFile masterModel, ModelFile mirroredModel, ResourceLocation particleTexture) {
-        createMultiblock(block, masterModel, mirroredModel, IEProperties.FACING_HORIZONTAL, IEProperties.MIRRORED);
-    }
 
-//    private void createMultiblock(NongeneratedModels.NongeneratedModel unsplitModel, IETemplateMultiblock multiblock) {
-//        createMultiblock(unsplitModel, multiblock, false);
-//    }
-//
-//    private void createMultiblock(NongeneratedModels.NongeneratedModel unsplitModel, IETemplateMultiblock multiblock) {
-//        createMultiblock(
-//                multiblock::getBlock,
-//                split(unsplitModel, multiblock),
-//                split(mirror(unsplitModel, innerModels), multiblock),
-//                IEProperties.FACING_HORIZONTAL, IEProperties.MIRRORED
-//        );
-//    }
-//
-    private void createMultiblock(Supplier<? extends Block> block, ModelFile masterModel, @Nullable ModelFile mirroredModel,
-                                  EnumProperty<Direction> facing, @Nullable Property<Boolean> mirroredState) {
-        unsplitModels.put(block.get(), masterModel);
-        Preconditions.checkArgument((mirroredModel == null) == (mirroredState == null));
-        VariantBlockStateBuilder builder = getVariantBuilder(block.get());
-        boolean[] possibleMirrorStates;
-        if (mirroredState != null) {
-            possibleMirrorStates = new boolean[]{false, true};
-        } else {
-            possibleMirrorStates = new boolean[1];
-        }
-        for (boolean mirror : possibleMirrorStates) {
-            for (Direction direction : facing.getPossibleValues()) {
-                final int angleY;
-                final int angleX;
-                if (facing.getPossibleValues().contains(Direction.UP)) {
-                    angleX = -90 * direction.getStepY();
-                    if (direction.getAxis() != Direction.Axis.Y) {
-                        angleY = getAngle(direction, 180);
-                    } else {
-                        angleY = 0;
-                    }
-                } else {
-                    angleY = getAngle(direction, 180);
-                    angleX = 0;
-                }
-
-                ModelFile model = mirror ? mirroredModel : masterModel;
-                VariantBlockStateBuilder.PartialBlockstate partialState = builder.partialState().with(facing, direction);
-                if (mirroredState != null) {
-                    partialState = partialState.with(mirroredState, mirror);
-                }
-                partialState.setModels(new ConfiguredModel(model, angleX, angleY, true));
-            }
-        }
-    }
-
-    private BlockModelBuilder multiblockModel(Block block, ResourceLocation model, ResourceLocation texture, String add, TemplateMultiblock multiblock, boolean mirror) {
+    private BlockModelBuilder multiblockModel(Block block, ResourceLocation model, ResourceLocation texture, String add, HTFCSMultiblockTemplate mb, boolean mirror){
         UnaryOperator<BlockPos> transform = UnaryOperator.identity();
-        if (mirror) {
-            Vec3i size = multiblock.getSize(null);
+        if(mirror){
+            Vec3i size = mb.getSize(null);
             transform = p -> new BlockPos(size.getX() - p.getX() - 1, p.getY(), p.getZ());
         }
-        final Vec3i offset = multiblock.getMasterFromOriginOffset();
+        final Vec3i offset = mb.getMasterFromOriginOffset();
 
-        Stream<Vec3i> partsStream = multiblock.getStructure(null).stream().filter(info -> !info.state.isAir()).map(info -> info.pos).map(transform).map(p -> p.subtract(offset));
-        BlockModelBuilder base = this.models().withExistingParent(Objects.requireNonNull(block.getRegistryName()).getPath() + add, mcLoc("block"))
-                .customLoader(OBJLoaderBuilder::begin)
-                .modelLocation(model)
-                .detectCullableFaces(false)
-                .flipV(true)
-                .end()
+        Stream<Vec3i> partsStream = mb.getStructure(null).stream()
+                .filter(info -> !info.state.isAir())
+                .map(info -> info.pos)
+                .map(transform)
+                .map(p -> p.subtract(offset));
+
+        String name = getMultiblockPath(block) + add;
+        NongeneratedModels.NongeneratedModel base = nongeneratedModels.withExistingParent(name, mcLoc("block"))
+                .customLoader(OBJLoaderBuilder::begin).modelLocation(model).detectCullableFaces(false).flipV(true).end()
                 .texture("texture", texture)
                 .texture("particle", texture);
-        BlockModelBuilder split = this.models().withExistingParent(Objects.requireNonNull(block.getRegistryName()).getPath() + "_split", mcLoc("block"))
+
+        BlockModelBuilder split = this.models().withExistingParent(name + "_split", mcLoc("block"))
                 .customLoader(SplitModelBuilder::begin)
                 .innerModel(base)
                 .parts(partsStream.collect(Collectors.toList()))
-                .end();
+                .dynamic(false).end();
 
         return split;
     }
 
-//    private ModelFile split(NongeneratedModels.NongeneratedModel location, TemplateMultiblock mb) {
-//        return split(location, mb, false);
-//    }
-//
-//    private ModelFile split(NongeneratedModels.NongeneratedModel location, TemplateMultiblock mb, boolean mirror) {
-//        return split(location, mb, mirror, false);
-//    }
-//
-//    private ModelFile split(NongeneratedModels.NongeneratedModel location, TemplateMultiblock mb, boolean mirror, boolean dynamic) {
-//        UnaryOperator<BlockPos> transform = UnaryOperator.identity();
-//        if (mirror) {
-//            Vec3i size = mb.getSize(null);
-//            transform = p -> new BlockPos(size.getX()-p.getX(), p.getY(), p.getZ());
-//        }
-//        return split(location, mb, transform, dynamic);
-//    }
 
-//    private ModelFile split(NongeneratedModels.NongeneratedModel name, TemplateMultiblock multiblock, UnaryOperator<BlockPos> transform, boolean dynamic) {
-////        LOGGER.info("im gonna kms {}", CurdSeparatorMultiblock.STRUCTURE);
-//        final Vec3i offset = multiblock.getMasterFromOriginOffset();
-//        Stream<Vec3i> partsStream = multiblock.getStructure(null)
-//                .stream()
-//                .filter(info -> !info.state.isAir())
-//                .map(info -> info.pos)
-//                .map(transform)
-//                .map(p -> p.subtract((offset)));
-//
-//        return split(name, partsStream.collect(Collectors.toList()));
-//    }
+    /** From {@link blusunrize.immersiveengineering.data.blockstates.BlockStates} */
+    private void createMultiblock(Block b, ModelFile masterModel, ModelFile mirroredModel, ResourceLocation particleTexture){
+        createMultiblock(b, masterModel, mirroredModel, IEProperties.MULTIBLOCKSLAVE, IEProperties.FACING_HORIZONTAL, IEProperties.MIRRORED, 180, particleTexture);
+    }
+
+    /** From {@link blusunrize.immersiveengineering.data.blockstates.BlockStates} */
+    private void createMultiblock(Block b, ModelFile masterModel, @Nullable ModelFile mirroredModel, Property<Boolean> isSlave, EnumProperty<Direction> facing, @Nullable Property<Boolean> mirroredState, int rotationOffset, ResourceLocation particleTex){
+        Preconditions.checkArgument((mirroredModel == null) == (mirroredState == null));
+        VariantBlockStateBuilder builder = getVariantBuilder(b);
+
+        boolean[] possibleMirrorStates;
+        if(mirroredState != null)
+            possibleMirrorStates = new boolean[]{false, true};
+        else
+            possibleMirrorStates = new boolean[1];
+        for(boolean mirrored:possibleMirrorStates)
+            for(Direction dir:facing.getPossibleValues()){
+                final int angleY;
+                final int angleX;
+                if(facing.getPossibleValues().contains(Direction.UP)){
+                    angleX = -90 * dir.getStepY();
+                    if(dir.getAxis() != Direction.Axis.Y)
+                        angleY = getAngle(dir, rotationOffset);
+                    else
+                        angleY = 0;
+                }else{
+                    angleY = getAngle(dir, rotationOffset);
+                    angleX = 0;
+                }
+
+                ModelFile model = mirrored ? mirroredModel : masterModel;
+                VariantBlockStateBuilder.PartialBlockstate partialState = builder.partialState()
+//						.with(isSlave, false)
+                        .with(facing, dir);
+
+                if(mirroredState != null)
+                    partialState = partialState.with(mirroredState, mirrored);
+
+                partialState.setModels(new ConfiguredModel(model, angleX, angleY, true));
+            }
+    }
+
+    /** From {@link blusunrize.immersiveengineering.data.blockstates.BlockStates} */
+    private int getAngle(Direction dir, int offset){
+        return (int) ((dir.toYRot() + offset) % 360);
+    }
+
+    private String getMultiblockPath(Block b){
+        return "multiblock/" + getPath(b);
+    }
+    private String getPath(Block b){
+        return Objects.requireNonNull(ForgeRegistries.BLOCKS.getKey(b)).getPath();
+    }
 }

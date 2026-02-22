@@ -1,0 +1,25 @@
+{
+  "type": "tfc:advanced_shaped_crafting",
+  "pattern": [
+    "H",
+    "S"
+  ],
+  "key": {
+    "H": {
+      "item": "htfc_subsidiaries:wrought_iron_spindle_head"
+    },
+    "S": {
+      "tag": "forge:rods/wooden"
+    }
+  },
+  "result": {
+    "stack": {
+      "item": "htfc_subsidiaries:wrought_iron_spindle"
+    },
+    "modifiers": [
+      "tfc:copy_forging_bonus"
+    ]
+  },
+  "input_row": 0,
+  "input_column": 0
+}

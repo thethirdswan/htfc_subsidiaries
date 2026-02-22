@@ -1,0 +1,15 @@
+{
+  "type": "mekanism:purifying",
+  "itemInput": {
+    "ingredient": {
+      "item": "htfc_subsidiaries:shard_zinc"
+    }
+  },
+  "chemicalInput": {
+    "amount": 1,
+    "gas": "mekanism:oxygen"
+  },
+  "output": {
+    "item": "htfc_subsidiaries:clump_zinc"
+  }
+}

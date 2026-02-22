@@ -3,6 +3,7 @@ package com.thethirdswan.htfc_subsidiaries;
 import blusunrize.immersiveengineering.api.multiblocks.MultiblockHandler;
 import com.mojang.logging.LogUtils;
 
+import com.thethirdswan.htfc_subsidiaries.blocks.multiblocks.CurdSeparatorBlock;
 import com.thethirdswan.htfc_subsidiaries.blocks.multiblocks.HTFCSMultiblocks;
 import com.thethirdswan.htfc_subsidiaries.pnc.PNCUpgradesSetup;
 import com.thethirdswan.htfc_subsidiaries.pnc.UpgradeHandlers;
@@ -33,9 +34,16 @@ public class Main {
     private static final Logger LOGGER = LogUtils.getLogger();
 
     public Main() {
+        LOGGER.info("Starting HTFC Subsidiaries");
+        HTFCSMultiblocks.forceLoad();
+        LOGGER.info("Pre-Loaded Multiblocks");
         HTFCSBlocks.init();
+        LOGGER.info("Initialized Blocks");
         Registrate.init();
+        LOGGER.info("Registrate Initialization");
         BlockEntities.init();
+        LOGGER.info("Block Entity Initialization");
+
         // Register the setup method for modloading
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
         // Register the enqueueIMC method for modloading
@@ -51,6 +59,7 @@ public class Main {
     private void setup(final FMLCommonSetupEvent event) {
         UpgradeHandlers.init();
         HTFCSMultiblocks.init();
+        LOGGER.info("Multiblock Initialization");
         event.enqueueWork(PNCUpgradesSetup::init);
     }
 
