@@ -1,14 +1,12 @@
 package com.thethirdswan.htfc_subsidiaries;
 
-import blusunrize.immersiveengineering.api.multiblocks.MultiblockHandler;
 import com.mojang.logging.LogUtils;
 
-import com.thethirdswan.htfc_subsidiaries.blocks.multiblocks.CurdSeparatorBlock;
 import com.thethirdswan.htfc_subsidiaries.blocks.multiblocks.HTFCSMultiblocks;
+import com.thethirdswan.htfc_subsidiaries.client.ClientEvents;
 import com.thethirdswan.htfc_subsidiaries.pnc.PNCUpgradesSetup;
 import com.thethirdswan.htfc_subsidiaries.pnc.UpgradeHandlers;
-import com.thethirdswan.htfc_subsidiaries.setup.BlockEntities;
-import com.thethirdswan.htfc_subsidiaries.setup.HTFCSBlocks;
+import com.thethirdswan.htfc_subsidiaries.setup.*;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
@@ -22,7 +20,6 @@ import net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent;
 import net.minecraftforge.fml.event.lifecycle.InterModProcessEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.minecraftforge.registries.NewRegistryEvent;
 import org.slf4j.Logger;
 
 import java.util.stream.Collectors;
@@ -31,7 +28,7 @@ import java.util.stream.Collectors;
 @Mod("htfc_subsidiaries")
 public class Main {
     // Directly reference a slf4j logger
-    private static final Logger LOGGER = LogUtils.getLogger();
+    public static final Logger LOGGER = LogUtils.getLogger();
 
     public Main() {
         LOGGER.info("Starting HTFC Subsidiaries");
@@ -39,10 +36,13 @@ public class Main {
         LOGGER.info("Pre-Loaded Multiblocks");
         HTFCSBlocks.init();
         LOGGER.info("Initialized Blocks");
-        Registrate.init();
+        HTFCSItems.init();
         LOGGER.info("Registrate Initialization");
-        BlockEntities.init();
+        HTFCSBlockEntities.init();
         LOGGER.info("Block Entity Initialization");
+        HTFCSContainers.init();
+        ClientEvents.init();
+        RecipeSerializers.init();
 
         // Register the setup method for modloading
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
@@ -103,7 +103,7 @@ public class Main {
     public static final CreativeModeTab ITEM_GROUP = new CreativeModeTab("htfc_subsidiaries") {
         @Override
         public ItemStack makeIcon() {
-            return new ItemStack(Registrate.TEMPERATURE_REGULATOR_UPGRADE.get());
+            return new ItemStack(HTFCSItems.TEMPERATURE_REGULATOR_UPGRADE.get());
         }
     };
 }

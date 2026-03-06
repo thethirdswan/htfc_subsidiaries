@@ -55,7 +55,7 @@ public class MultiblockStates extends BlockStateProvider {
     }
 
     private void curdseparator() {
-        ResourceLocation texture = modLoc("block/tank");
+        ResourceLocation texture = modLoc("models/block/curd_separator");
         ResourceLocation modelNormal = modLoc("models/block/curd_separator.obj");
         ResourceLocation modelMirrored = modLoc("models/block/curd_separator.obj");
         CurdSeparatorBlock test = HTFCSMultiblocks.CURD_SEPARATOR.get();
@@ -82,9 +82,13 @@ public class MultiblockStates extends BlockStateProvider {
 
         String name = getMultiblockPath(block) + add;
         NongeneratedModels.NongeneratedModel base = nongeneratedModels.withExistingParent(name, mcLoc("block"))
-                .customLoader(OBJLoaderBuilder::begin).modelLocation(model).detectCullableFaces(false).flipV(true).end()
-                .texture("texture", texture)
-                .texture("particle", texture);
+                .customLoader(OBJLoaderBuilder::begin)
+                .modelLocation(model)
+                .detectCullableFaces(false)
+                .flipV(true)
+                .end();
+//                .texture("texture", texture)
+//                .texture("particle", texture);
 
         BlockModelBuilder split = this.models().withExistingParent(name + "_split", mcLoc("block"))
                 .customLoader(SplitModelBuilder::begin)

@@ -2,7 +2,7 @@ package com.thethirdswan.htfc_subsidiaries.pnc.handlers;
 
 import com.lumintorious.tfcambiental.capability.TemperatureCapability;
 import com.mojang.logging.LogUtils;
-import com.thethirdswan.htfc_subsidiaries.Registrate;
+import com.thethirdswan.htfc_subsidiaries.setup.HTFCSItems;
 import me.desht.pneumaticcraft.api.item.PNCUpgrade;
 import me.desht.pneumaticcraft.api.pneumatic_armor.BaseArmorUpgradeHandler;
 import me.desht.pneumaticcraft.api.pneumatic_armor.IArmorExtensionData;
@@ -25,7 +25,7 @@ public class TemperatureHandler extends BaseArmorUpgradeHandler<IArmorExtensionD
 
     @Override
     public PNCUpgrade[] getRequiredUpgrades() {
-        return new PNCUpgrade[]{Registrate.TEMPERATURE_REGULATOR.get()};
+        return new PNCUpgrade[]{HTFCSItems.TEMPERATURE_REGULATOR.get()};
     }
 
     @Override

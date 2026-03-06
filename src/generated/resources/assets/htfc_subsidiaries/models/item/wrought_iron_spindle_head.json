@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "htfc_subsidiaries:item/wrought_iron_spindle_head"
-  }
-}

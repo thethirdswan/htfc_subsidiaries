@@ -10,7 +10,7 @@
     "amount": 2000
   },
   "fluid": {
-    "fluid": "firmalife:goat_milk",
+    "tag": "firmalife:goat_milk",
     "amount": 2000
   },
   "energy": 3200

@@ -1,0 +1,89 @@
+{
+  "parent": "minecraft:block/block",
+  "loader": "immersiveengineering:basic_split",
+  "dynamic": false,
+  "inner_model": {
+    "parent": "minecraft:block/block",
+    "loader": "forge:obj",
+    "model": "htfc_subsidiaries:models/block/curd_separator.obj",
+    "detectCullableFaces": false,
+    "flip-v": true
+  },
+  "split_parts": [
+    [
+      1,
+      0,
+      -2
+    ],
+    [
+      1,
+      0,
+      -1
+    ],
+    [
+      1,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      -2
+    ],
+    [
+      0,
+      0,
+      -1
+    ],
+    [
+      0,
+      0,
+      0
+    ],
+    [
+      -1,
+      0,
+      -2
+    ],
+    [
+      -1,
+      0,
+      -1
+    ],
+    [
+      -1,
+      0,
+      0
+    ],
+    [
+      1,
+      1,
+      -2
+    ],
+    [
+      0,
+      1,
+      -2
+    ],
+    [
+      0,
+      1,
+      -1
+    ],
+    [
+      -1,
+      1,
+      -2
+    ],
+    [
+      -1,
+      1,
+      -1
+    ],
+    [
+      -1,
+      1,
+      0
+    ]
+  ]
+}

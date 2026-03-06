@@ -11,12 +11,11 @@ import java.util.function.Consumer;
 public class CurdSeparatorMultiblock extends HTFCSMultiblockTemplate {
     public static final CurdSeparatorMultiblock INSTANCE = new CurdSeparatorMultiblock();
 
-    // todo structure is null? something wrong with the nbt file?
     public CurdSeparatorMultiblock() {
         super(new ResourceLocation("htfc_subsidiaries", "multiblocks/curd_separator"),
+                new BlockPos(1, 0, 2),
                 new BlockPos(1, 1, 1),
-                new BlockPos(1, 1, 1),
-                new BlockPos(3, 3, 3),
+                new BlockPos(3, 2, 3),
                 HTFCSMultiblocks.CURD_SEPARATOR);
     }
 
@@ -27,6 +26,6 @@ public class CurdSeparatorMultiblock extends HTFCSMultiblockTemplate {
 
     @Override
     public void initializeClient(Consumer<ClientMultiblocks.MultiblockManualData> consumer) {
-        consumer.accept(new CurdSeparatorManualData());
+        consumer.accept(new HTFCSMultiblockManualData(INSTANCE));
     }
 }

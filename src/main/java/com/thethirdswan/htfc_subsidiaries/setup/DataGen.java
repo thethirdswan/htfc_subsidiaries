@@ -19,17 +19,17 @@ public class DataGen {
         StaticTemplateManager.EXISTING_HELPER = exHelper;
 
         if (event.includeServer()) {
-            generator.addProvider(new Recipes(generator));
+            generator.addProvider(new HTFCSRecipes(generator));
             generator.addProvider(new ItemHeatProvider(generator));
-            BlockTags blockTags = new BlockTags(generator, event.getExistingFileHelper());
-            generator.addProvider(blockTags);
-            generator.addProvider(new ItemTags(generator, blockTags, event.getExistingFileHelper()));
+            HTFCSBlockTags HTFCSBlockTags = new HTFCSBlockTags(generator, event.getExistingFileHelper());
+            generator.addProvider(HTFCSBlockTags);
+            generator.addProvider(new HTFCSItemTags(generator, HTFCSBlockTags, event.getExistingFileHelper()));
         }
         if (event.includeClient()) {
 //            generator.addProvider(new TutBlockStates(generator, event.getExistingFileHelper()));
             generator.addProvider(new MultiblockStates(generator, "htfc_subsidiaries", event.getExistingFileHelper()));
-            generator.addProvider(new ItemModels(generator, event.getExistingFileHelper()));
-            generator.addProvider(new LanguageProviders(generator, "en_us"));
+            generator.addProvider(new HTFCSItemModels(generator, event.getExistingFileHelper()));
+            generator.addProvider(new HTFCSLanguageProviders(generator, "en_us"));
         }
     }
 }

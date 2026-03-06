@@ -2,10 +2,10 @@
 # www.blender.org
 
 newmtl Material
-map_Kd #texture
+map_Kd htfc_subsidiaries:block/tank
 
 newmtl Material.003
-map_Kd #texture
+map_Kd immersiveengineering:multiblock/multiblock_components
 
 newmtl base
-map_Kd #texture
+map_Kd immersiveengineering:multiblock/multiblock_base

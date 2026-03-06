@@ -10,7 +10,7 @@
     "amount": 2000
   },
   "fluid": {
-    "fluid": "minecraft:milk",
+    "tag": "forge:milk",
     "amount": 2000
   },
   "energy": 3200

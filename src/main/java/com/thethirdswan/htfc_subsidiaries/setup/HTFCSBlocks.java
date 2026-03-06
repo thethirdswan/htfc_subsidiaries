@@ -1,21 +1,9 @@
 package com.thethirdswan.htfc_subsidiaries.setup;
 
-import blusunrize.immersiveengineering.api.IEProperties;
-import blusunrize.immersiveengineering.common.blocks.IEBlockInterfaces;
-import blusunrize.immersiveengineering.common.blocks.MultiblockBEType;
 import com.mojang.logging.LogUtils;
-import com.thethirdswan.htfc_subsidiaries.Registrate;
-import com.thethirdswan.htfc_subsidiaries.blocks.multiblocks.CurdSeparatorBlock;
-import com.thethirdswan.htfc_subsidiaries.blocks.multiblocks.HTFCSMultiblocks;
-import com.thethirdswan.htfc_subsidiaries.multiblocks.CurdSeparatorBlockEntity;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.SoundType;
-import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.block.entity.BlockEntityType;
-import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.material.Material;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
@@ -45,7 +33,7 @@ public class HTFCSBlocks {
     }
 
     public static void registerItem(String registry_name,  Supplier<Item> itemSupplier){
-        Registrate.ITEMS.register(registry_name, itemSupplier);
+        HTFCSItems.ITEMS.register(registry_name, itemSupplier);
     }
 
 

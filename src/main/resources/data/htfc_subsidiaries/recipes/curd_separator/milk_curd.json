@@ -1,0 +1,11 @@
+{
+  "type": "htfc_subsidiaries:curd_separator",
+  "result": {
+    "item": "firmalife:food/milk_curd"
+  },
+  "input": {
+    "fluid": "tfc:curdled_milk",
+    "amount": 500
+  },
+  "energy": 500
+}

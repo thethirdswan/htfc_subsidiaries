@@ -1,0 +1,15 @@
+{
+  "type": "immersiveengineering:refinery",
+  "result": {
+    "fluid": "firmalife:cream",
+    "amount": 100
+  },
+  "input0": {
+    "tag": "tfc:milks",
+    "amount": 500
+  },
+  "catalyst": {
+    "tag": "htfc_subsidiaries:cheesecloth"
+  },
+  "energy": 100
+}
