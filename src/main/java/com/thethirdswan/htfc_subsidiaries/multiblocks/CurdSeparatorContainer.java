@@ -11,13 +11,13 @@ public class CurdSeparatorContainer extends IEBaseContainer<CurdSeparatorBlockEn
     public CurdSeparatorContainer(MenuType<?> type, int id, Inventory playerInventory, final CurdSeparatorBlockEntity tile) {
         super(type, tile, id);
 
-//        this.addSlot(new Slot(this.inv, slotCount++, ))
         this.addSlot(new IESlot.FluidContainer(this, this.inv, 0, 133, 15, 0));
-//        for (int i = 54; i < 115; i += 30) {
         // todo multiblock slots still messy, attempting to fix later after fixing recipes
-        this.addSlot(new IESlot.Output(this, this.inv, 1, 152, 65));
-        this.addSlot(new IESlot.Output(this, this.inv, 2, 180, 70));
-//        }
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 2; j++) {
+                this.addSlot(new IESlot.Output(this, this.inv, j + i, 80 + i * 18, 40 + j * 18));
+            }
+        }
 
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 9; j++) {

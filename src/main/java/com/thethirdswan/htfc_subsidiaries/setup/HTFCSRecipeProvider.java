@@ -47,8 +47,8 @@ import org.slf4j.Logger;
 
 import static com.thethirdswan.htfc_subsidiaries.setup.HTFCSItems.*;
 
-public class HTFCSRecipes extends RecipeProvider {
-    public HTFCSRecipes(DataGenerator generator) {
+public class HTFCSRecipeProvider extends RecipeProvider {
+    public HTFCSRecipeProvider(DataGenerator generator) {
         super(generator);
     }
 
@@ -290,7 +290,8 @@ public class HTFCSRecipes extends RecipeProvider {
     }
 
     protected void buildIndustrialCheeseRecipes(Consumer<FinishedRecipe> consumer) {
-        // curdled milk, how could i add a fluidtag instead of fluidstack in the mixer recipe?
+        // curdled milk,
+        // todo how could i add a fluidtag instead of fluidstack in the mixer recipe?
         MixerRecipeBuilder.builder(new FluidStack(ForgeRegistries.FLUIDS.getValue(new ResourceLocation("tfc:curdled_milk")).defaultFluidState().getType(), 2000))
                 .addFluid(new FluidStack(ForgeRegistries.FLUIDS.getValue(new ResourceLocation("forge:milk")).defaultFluidState().getType(), 2000))
                 .addInput(new ItemStack(ForgeRegistries.ITEMS.getValue(new ResourceLocation("firmalife", "rennet"))).getItem())
@@ -308,7 +309,6 @@ public class HTFCSRecipes extends RecipeProvider {
                 .build(consumer, new ResourceLocation("htfc_subsidiaries", "mixing/curdled_yak_milk"));
 
         // curds
-        // todo the curds are not working, is it because the items are not is itemtag form? or is it some null value in the recipe that i'm not getting at?
         CurdSeparatorRecipeBuilder.builder(new ItemStack(ForgeRegistries.ITEMS.getValue(new ResourceLocation("firmalife:food/milk_curd"))))
                 .addInput(new TagKey<Fluid>(Registry.FLUID_REGISTRY, new ResourceLocation("tfc:curdled_milk")), 500)
                 .setEnergy(500)
@@ -323,16 +323,6 @@ public class HTFCSRecipes extends RecipeProvider {
                 .build(consumer, new ResourceLocation("htfc_subsidiaries", "curd_separator/yak_curd"));
 
         // cream
-//        RefineryRecipeBuilder.builder(new FluidStack(ForgeRegistries.FLUIDS.getValue(new ResourceLocation("firmalife:cream")).defaultFluidState().getType(), 100))
-//                .addInput(new TagKey<Fluid>(Registry.FLUID_REGISTRY, new ResourceLocation("firmalife:yak_milk")), 500)
-//                .addCatalyst(HTFCSItemTags.CHEESECLOTH)
-//                .setEnergy(100)
-//                .build(consumer, new ResourceLocation("htfc_subsidiaries", "refinery/cream/yak_milk"));
-//        RefineryRecipeBuilder.builder(new FluidStack(ForgeRegistries.FLUIDS.getValue(new ResourceLocation("firmalife:cream")).defaultFluidState().getType(), 100))
-//                .addInput(new FluidStack(ForgeRegistries.FLUIDS.getValue(new ResourceLocation("minecraft:milk")).defaultFluidState().getType(), 100))
-//                .addCatalyst(HTFCSItemTags.CHEESECLOTH)
-//                .setEnergy(100)
-//                .build(consumer, new ResourceLocation("htfc_subsidiaries", "refinery/cream/milk"));
         RefineryRecipeBuilder.builder(new FluidStack(ForgeRegistries.FLUIDS.getValue(new ResourceLocation("firmalife:cream")).defaultFluidState().getType(), 100))
                 .addInput(new TagKey<Fluid>(Registry.FLUID_REGISTRY, new ResourceLocation("tfc:milks")), 500)
                 .addCatalyst(HTFCSItemTags.CHEESECLOTH)

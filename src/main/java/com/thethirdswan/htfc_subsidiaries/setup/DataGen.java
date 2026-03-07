@@ -19,7 +19,7 @@ public class DataGen {
         StaticTemplateManager.EXISTING_HELPER = exHelper;
 
         if (event.includeServer()) {
-            generator.addProvider(new HTFCSRecipes(generator));
+            generator.addProvider(new HTFCSRecipeProvider(generator));
             generator.addProvider(new ItemHeatProvider(generator));
             HTFCSBlockTags HTFCSBlockTags = new HTFCSBlockTags(generator, event.getExistingFileHelper());
             generator.addProvider(HTFCSBlockTags);

@@ -1,10 +1,10 @@
 {
   "type": "htfc_subsidiaries:curd_separator",
   "result": {
-    "item": "firmalife:food/yak_curd"
+    "tag": "forge:curds/yak_milk"
   },
   "input": {
-    "fluid": "firmalife:curdled_yak_milk",
+    "tag": "firmalife:curdled_yak_milk",
     "amount": 500
   },
   "energy": 500

@@ -1,5 +1,7 @@
 package com.thethirdswan.htfc_subsidiaries.multiblocks;
 
+import blusunrize.immersiveengineering.api.utils.CapabilityReference;
+import blusunrize.immersiveengineering.api.utils.DirectionalBlockPos;
 import blusunrize.immersiveengineering.api.utils.shapes.CachedShapesWithTransform;
 import blusunrize.immersiveengineering.common.blocks.IEBlockInterfaces;
 import blusunrize.immersiveengineering.common.blocks.generic.PoweredMultiblockBlockEntity;
@@ -8,6 +10,7 @@ import blusunrize.immersiveengineering.common.blocks.multiblocks.process.Multibl
 import blusunrize.immersiveengineering.common.blocks.ticking.IEClientTickableBE;
 import blusunrize.immersiveengineering.common.util.MultiblockCapability;
 import blusunrize.immersiveengineering.common.util.Utils;
+import blusunrize.immersiveengineering.common.util.inventory.IEInventoryHandler;
 import blusunrize.immersiveengineering.common.util.orientation.RelativeBlockFace;
 import com.mojang.datafixers.util.Pair;
 import com.mojang.logging.LogUtils;
@@ -36,16 +39,21 @@ import net.minecraftforge.fluids.IFluidTank;
 import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
 import net.minecraftforge.fluids.capability.IFluidHandler;
 import net.minecraftforge.fluids.capability.templates.FluidTank;
+import net.minecraftforge.items.CapabilityItemHandler;
+import net.minecraftforge.items.IItemHandler;
+import net.minecraftforge.items.ItemHandlerHelper;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.slf4j.Logger;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 
 public class CurdSeparatorBlockEntity extends PoweredMultiblockBlockEntity<CurdSeparatorBlockEntity, CurdSeparatorRecipe> implements HTFCSContainerProvider<CurdSeparatorBlockEntity>, IEBlockInterfaces.IBlockBounds, IEClientTickableBE, IEBlockInterfaces.ISoundBE {
     private static final Logger LOGGER = LogUtils.getLogger();
+    //    public static final Level world = level;
     public final NonNullList<ItemStack> inv = NonNullList.withSize(8, ItemStack.EMPTY);
     public FluidTank[] tanks = new FluidTank[]{
             new FluidTank(24 * FluidAttributes.BUCKET_VOLUME),
@@ -56,7 +64,7 @@ public class CurdSeparatorBlockEntity extends PoweredMultiblockBlockEntity<CurdS
     }
 
     @Override
-    protected @Nullable CurdSeparatorRecipe getRecipeForId(Level level, ResourceLocation resourceLocation) {
+    public @Nullable CurdSeparatorRecipe getRecipeForId(Level level, ResourceLocation resourceLocation) {
         return CurdSeparatorRecipe.RECIPES.getById(level, resourceLocation);
     }
 
@@ -82,9 +90,11 @@ public class CurdSeparatorBlockEntity extends PoweredMultiblockBlockEntity<CurdS
 
     private static final MultiblockFace outputOffset = new MultiblockFace(2, 0, 1, RelativeBlockFace.FRONT);
     private static final MultiblockFace inputOffset = new MultiblockFace(2, 1, 0, RelativeBlockFace.UP);
+    private final CapabilityReference<IItemHandler> output = CapabilityReference.forBlockEntityAt(this, () -> new DirectionalBlockPos(this.getBlockPosForPos(new BlockPos(1, 0, 2).relative(getFacing(), -1)), getFacing().getOpposite()), CapabilityItemHandler.ITEM_HANDLER_CAPABILITY);
 
+    private final MultiblockCapability<IItemHandler> outputHandler = MultiblockCapability.make(this, be -> be.outputHandler, CurdSeparatorBlockEntity::master, registerCapability(new IEInventoryHandler(6, this, 1, false, true)));
     private final MultiblockCapability<IFluidHandler> curdledInput = MultiblockCapability.make(this, be -> be.curdledInput, CurdSeparatorBlockEntity::master, registerFluidInput(tanks[0]));
-//    private final MultiblockCapability<IItemHandler> curdOutput = MultiblockCapability.make(this, be -> be.curdOutput, CurdSeparatorBlockEntity::master, regis)
+    //    private final MultiblockCapability<IItemHandler> curdOutput = MultiblockCapability.make(this, be -> be.curdOutput, CurdSeparatorBlockEntity::master, regis)
     private final MultiblockCapability<IFluidHandler> fluidView = MultiblockCapability.make(this, be -> be.fluidView, CurdSeparatorBlockEntity::master, registerFluidView(tanks[0]));
 
     @Override
@@ -96,6 +106,11 @@ public class CurdSeparatorBlockEntity extends PoweredMultiblockBlockEntity<CurdS
             MultiblockFace relativeFace = asRelativeFace(side);
             if (inputOffset.equals(relativeFace)) {
                 return curdledInput.getAndCast();
+            }
+        }
+        if (capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) {
+            if (Objects.equals(posInMultiblock, new BlockPos(1, 0, 2))) {
+                return outputHandler.getAndCast();
             }
         }
         return super.getCapability(capability, side);
@@ -113,13 +128,16 @@ public class CurdSeparatorBlockEntity extends PoweredMultiblockBlockEntity<CurdS
 
     @Override
     public boolean additionalCanProcessCheck(MultiblockProcess<CurdSeparatorRecipe> multiblockProcess) {
-        return false;
+        return true;
     }
 
     @Override
     public void doProcessOutput(ItemStack itemStack) {
-//        itemStack = Utils.insertStackIntoInventory(this.inv, itemStack, false);
-
+        itemStack = Utils.insertStackIntoInventory(this.output, itemStack, false);
+        if (!itemStack.isEmpty()) {
+            BlockPos pos = getBlockPos().offset(0, -1, 0).relative(getFacing(), -1);
+            Utils.dropStackAtPos(level, pos, itemStack, getFacing());
+        }
     }
 
     @Override
@@ -159,7 +177,7 @@ public class CurdSeparatorBlockEntity extends PoweredMultiblockBlockEntity<CurdS
 
     @Override
     public boolean isStackValid(int i, ItemStack itemStack) {
-        return false;
+        return true;
     }
 
     @Override
@@ -187,11 +205,13 @@ public class CurdSeparatorBlockEntity extends PoweredMultiblockBlockEntity<CurdS
     public VoxelShape getBlockBounds(@Nullable CollisionContext collisionContext) {
         return SHAPES.get(this.posInMultiblock, Pair.of(getFacing(), getIsMirrored()));
     }
+
     public static final AABB FULL = new AABB(0.0, 0.0, 0.0, 1.0, 1.0, 1.0);
 
     // todo add custom shape to multiblock
     private static final CachedShapesWithTransform<BlockPos, Pair<Direction, Boolean>> SHAPES = CachedShapesWithTransform.createForMultiblock(CurdSeparatorBlockEntity::getShape);
-    private static List<AABB> getShape(BlockPos posInMultiblock){
+
+    private static List<AABB> getShape(BlockPos posInMultiblock) {
         final int x = posInMultiblock.getX();
         final int y = posInMultiblock.getY();
         final int z = posInMultiblock.getZ();
@@ -231,27 +251,50 @@ public class CurdSeparatorBlockEntity extends PoweredMultiblockBlockEntity<CurdS
         return false;
     }
 
-    // todo figure out why it's not producing items
     @Override
     public void tickServer() {
         super.tickServer();
+        if (isDummy()) return;
         boolean update = false;
-        LOGGER.info("the server is ticking, process queue: {}", processQueue.size());
+        LOGGER.info("queue size: {}", processQueue.size());
         if (energyStorage.getEnergyStored() > 0 && processQueue.size() < this.getProcessQueueMaxLength()) {
-            LOGGER.info("passed first if block");
             if (tanks[0].getFluidAmount() > 0) {
-                LOGGER.info("tank fluid amount greater that 0");
                 CurdSeparatorRecipe recipe = CurdSeparatorRecipe.findRecipe(level, tanks[0].getFluid());
-                LOGGER.info("got recipe: {}", recipe);
                 if (recipe != null) {
                     MultiblockProcessInMachine<CurdSeparatorRecipe> process = new MultiblockProcessInMachine<>(recipe, this::getRecipeForId)
-                            .setInputTanks(0);
+                            .setInputTanks(new int[]{tanks[0].getFluidAmount()});
+                    LOGGER.info("process: {}", process);
                     if (this.addProcessToQueue(process, true)) {
                         this.addProcessToQueue(process, false);
+                        LOGGER.info("Added process to queue");
                         update = true;
                     }
                 }
             }
+        }
+
+        if (level.getGameTime() % 20 == 0) {
+            LOGGER.info("game time is dividable by 20");
+            IItemHandler outputHandler = output.getNullable();
+            LOGGER.info("output handler: {}", outputHandler);
+//            if (outputHandler != null) {
+//                LOGGER.info("output handler isn't null");
+                for (int i = 1; i < 7; i++) {
+                    if (inv.get(i).isEmpty()) {
+//                        LOGGER.info("this slot is not empty: {}", i);
+                        ItemStack stack = ItemHandlerHelper.copyStackWithSize(inv.get(i), 1);
+                        stack = ItemHandlerHelper.insertItem(outputHandler, stack, false);
+                        LOGGER.info("item stack: {}", stack.getItem());
+                        if (stack.isEmpty()) {
+                            this.inv.get(i).shrink(1);
+                            if (this.inv.get(i).getCount() <= 0) {
+                                this.inv.set(i, ItemStack.EMPTY);
+                            }
+                        }
+                    }
+                }
+//            }
+
         }
 
         Direction facing = getFacing();
