@@ -43,7 +43,7 @@ public class CurdSeparatorRecipe extends HTFCSMultiblockRecipe {
     public static CurdSeparatorRecipe findRecipe(Level level, FluidStack input) {
         LOGGER.info("is this even being called?");
         for (CurdSeparatorRecipe recipe : RECIPES.getRecipes(level)) {
-            LOGGER.info("checking recipe {}", recipe.getResultItem());
+            LOGGER.info("checking recipe {}", recipe.getResultItem().getItem().getRegistryName());
             if (!input.isEmpty()) {
                 LOGGER.info("input is not empty");
                 if (recipe.input != null && recipe.input.test(input)) {

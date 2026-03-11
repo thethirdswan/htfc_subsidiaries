@@ -58,6 +58,7 @@ public class CurdSeparatorBlockEntity extends PoweredMultiblockBlockEntity<CurdS
     public FluidTank[] tanks = new FluidTank[]{
             new FluidTank(24 * FluidAttributes.BUCKET_VOLUME),
     };
+    private static final BlockPos OUT_POS = new BlockPos(1, 0, 2);
 
     public CurdSeparatorBlockEntity(BlockEntityType<CurdSeparatorBlockEntity> type, BlockPos pos, BlockState state) {
         super(CurdSeparatorMultiblock.INSTANCE, 16000, true, type, pos, state);
@@ -90,7 +91,7 @@ public class CurdSeparatorBlockEntity extends PoweredMultiblockBlockEntity<CurdS
 
     private static final MultiblockFace outputOffset = new MultiblockFace(2, 0, 1, RelativeBlockFace.FRONT);
     private static final MultiblockFace inputOffset = new MultiblockFace(2, 1, 0, RelativeBlockFace.UP);
-    private final CapabilityReference<IItemHandler> output = CapabilityReference.forBlockEntityAt(this, () -> new DirectionalBlockPos(this.getBlockPosForPos(new BlockPos(1, 0, 2).relative(getFacing(), -1)), getFacing().getOpposite()), CapabilityItemHandler.ITEM_HANDLER_CAPABILITY);
+    private final CapabilityReference<IItemHandler> output = CapabilityReference.forBlockEntityAt(this, () -> new DirectionalBlockPos(this.getBlockPosForPos(OUT_POS.relative(getFacing(), 1)), getFacing().getOpposite()), CapabilityItemHandler.ITEM_HANDLER_CAPABILITY);
 
     private final MultiblockCapability<IItemHandler> outputHandler = MultiblockCapability.make(this, be -> be.outputHandler, CurdSeparatorBlockEntity::master, registerCapability(new IEInventoryHandler(6, this, 1, false, true)));
     private final MultiblockCapability<IFluidHandler> curdledInput = MultiblockCapability.make(this, be -> be.curdledInput, CurdSeparatorBlockEntity::master, registerFluidInput(tanks[0]));
@@ -109,7 +110,10 @@ public class CurdSeparatorBlockEntity extends PoweredMultiblockBlockEntity<CurdS
             }
         }
         if (capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) {
-            if (Objects.equals(posInMultiblock, new BlockPos(1, 0, 2))) {
+//            if (Objects.equals(posInMultiblock, new BlockPos(1, 0, 2))) {
+//                return outputHandler.getAndCast();
+//            }
+            if (posInMultiblock.equals(OUT_POS)) {
                 return outputHandler.getAndCast();
             }
         }
@@ -277,11 +281,12 @@ public class CurdSeparatorBlockEntity extends PoweredMultiblockBlockEntity<CurdS
             LOGGER.info("game time is dividable by 20");
             IItemHandler outputHandler = output.getNullable();
             LOGGER.info("output handler: {}", outputHandler);
-//            if (outputHandler != null) {
-//                LOGGER.info("output handler isn't null");
+            if (outputHandler != null) {
+                LOGGER.info("output handler isn't null");
                 for (int i = 1; i < 7; i++) {
-                    if (inv.get(i).isEmpty()) {
-//                        LOGGER.info("this slot is not empty: {}", i);
+                    LOGGER.info("what's in this slot? {}", inv.get(i));
+                    if (!inv.get(i).isEmpty()) {
+                        LOGGER.info("this slot is not empty: {}", i);
                         ItemStack stack = ItemHandlerHelper.copyStackWithSize(inv.get(i), 1);
                         stack = ItemHandlerHelper.insertItem(outputHandler, stack, false);
                         LOGGER.info("item stack: {}", stack.getItem());
@@ -293,7 +298,7 @@ public class CurdSeparatorBlockEntity extends PoweredMultiblockBlockEntity<CurdS
                         }
                     }
                 }
-//            }
+            }
 
         }
 

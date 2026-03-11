@@ -1,7 +1,7 @@
 {
   "type": "htfc_subsidiaries:curd_separator",
   "result": {
-    "tag": "forge:curds/milk"
+    "item": "firmalife:food/milk_curd"
   },
   "input": {
     "tag": "tfc:curdled_milk",
