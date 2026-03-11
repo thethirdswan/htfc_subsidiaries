@@ -27,15 +27,6 @@ import static me.desht.pneumaticcraft.api.PneumaticRegistry.RL;
 
 public class HTFCSItems {
     private static final Logger LOGGER = LogUtils.getLogger();
-//    public static final DeferredRegister<IHeatRegistry> ITEM_HEAT = DeferredRegister.create(new ResourceLocation("htfc_subsidiaries", "item_heats"), "htfc_subsidiaries");
-//    public static final Supplier<IForgeRegistry<IHeatRegistry>> ITEM_HEAT_REGISTRY = ITEM_HEAT.makeRegistry(IHeatRegistry.class, RegistryBuilder::new);
-
-//    public static final DeferredRegister<IHeatSerializer> ITEM_HEAT_SERIALIZER = DeferredRegister.create(new ResourceLocation("htfc_subsidiaries", "item_heat_serializer"), "htfc_subsidiaries");
-//    public static final RegistryObject<IHeatSerializer> I_HEAT_SERIALIZER = ITEM_HEAT_SERIALIZER.register("item_heat", IHeatSerializer::new);
-//    public static final RegistryBuilder<IHeatProperty> iHeatBuilder = new RegistryBuilder<IHeatProperty>().dataPackRegistry(IHeatSerializer.CODEC);
-
-
-
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, "htfc_subsidiaries");
 
     public static final DeferredRegister<PNCUpgrade> PNCUPGRADES = DeferredRegister.create(RL("upgrades"), "htfc_subsidiaries");
@@ -49,14 +40,10 @@ public class HTFCSItems {
         PNCUPGRADES.register(eventBus);
         MEKANISM_ITEMS.register(eventBus);
         MEKANISM_SLURRIES.register(eventBus);
-//        ITEM_HEAT.register(eventBus);
         mekItemInit();
     }
     public static final RegistryObject<Item> WROUGHT_IRON_SPINDLE = ITEMS.register("wrought_iron_spindle", () -> new Item(new Item.Properties().tab(ITEM_GROUP).defaultDurability(2200)));
     public static final RegistryObject<Item> WROUGHT_IRON_SPINDLE_HEAD = ITEMS.register("wrought_iron_spindle_head", () -> new Item(new Item.Properties().tab(ITEM_GROUP)));
-
-//    public static final RegistryObject<IHeatRegistry> TEST = ITEM_HEAT.register("spindle_head_heating", () -> new IHeatRegistry());
-
 
     public static final RegistryObject<PNCUpgrade> TEMPERATURE_REGULATOR = PNCUPGRADES
             .register("temperature_regulator", () ->

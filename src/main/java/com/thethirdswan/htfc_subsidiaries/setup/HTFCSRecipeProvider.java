@@ -12,7 +12,6 @@ import blusunrize.immersiveengineering.api.crafting.builders.MixerRecipeBuilder;
 import blusunrize.immersiveengineering.api.crafting.builders.RefineryRecipeBuilder;
 import com.eerussianguy.firmalife.common.items.FLItems;
 import com.mojang.logging.LogUtils;
-import com.thethirdswan.htfc_subsidiaries.api.CurdSeparatorRecipeBuilder;
 import com.thethirdswan.htfc_subsidiaries.tfcrecipes.Heating;
 import com.thethirdswan.htfc_subsidiaries.tfcrecipes.SpindleHeadAnvil;
 import com.thethirdswan.htfc_subsidiaries.tfcrecipes.SpindleWithForgeBonus;
@@ -280,20 +279,13 @@ public class HTFCSRecipeProvider extends RecipeProvider {
                 .setTime(100)
                 .setEnergy(51200)
                 .build(consumer, new ResourceLocation("htfc_subsidiaries:arc_furnace/queens_slime"));
-//        ArcFurnaceRecipeBuilder.builder(new TagKey<Item>(Registry.ITEM_REGISTRY, new ResourceLocation("forge", "ingots/hepatizon")), 2)
-//                .addIngredient("input", new IngredientWithSize(new TagKey<Item>(Registry.ITEM_REGISTRY, new ResourceLocation("forge", "ingots/copper")), 2))
-//                .addInput(new IngredientWithSize(new TagKey<Item>(Registry.ITEM_REGISTRY, new ResourceLocation("forge", "storage_blocks/quartz"))))
-//                .addInput(new IngredientWithSize(new TagKey<Item>(Registry.ITEM_REGISTRY, IETags.getIngot("cobalt"))))
-//                .setTime(100)
-//                .setEnergy(51200)
-//                .build(consumer, new ResourceLocation("htfc_subsidiaries:arc_furnace/hepatizon"));
     }
 
     protected void buildIndustrialCheeseRecipes(Consumer<FinishedRecipe> consumer) {
         // curdled milk,
         // todo how could i add a fluidtag instead of fluidstack in the mixer recipe?
         MixerRecipeBuilder.builder(new FluidStack(ForgeRegistries.FLUIDS.getValue(new ResourceLocation("tfc:curdled_milk")).defaultFluidState().getType(), 2000))
-                .addFluid(new FluidStack(ForgeRegistries.FLUIDS.getValue(new ResourceLocation("forge:milk")).defaultFluidState().getType(), 2000))
+                .addFluid("tag", new FluidStack(ForgeRegistries.FLUIDS.getValue(new ResourceLocation("forge:milk")).defaultFluidState().getType(), 2000))
                 .addInput(new ItemStack(ForgeRegistries.ITEMS.getValue(new ResourceLocation("firmalife", "rennet"))).getItem())
                 .setEnergy(3200)
                 .build(consumer, new ResourceLocation("htfc_subsidiaries", "mixing/curdled_milk"));
@@ -307,20 +299,6 @@ public class HTFCSRecipeProvider extends RecipeProvider {
                 .addInput(new ItemStack(ForgeRegistries.ITEMS.getValue(new ResourceLocation("firmalife", "rennet"))).getItem())
                 .setEnergy(3200)
                 .build(consumer, new ResourceLocation("htfc_subsidiaries", "mixing/curdled_yak_milk"));
-
-        // curds
-        CurdSeparatorRecipeBuilder.builder(new ItemStack(ForgeRegistries.ITEMS.getValue(new ResourceLocation("firmalife:food/milk_curd"))))
-                .addInput(new TagKey<Fluid>(Registry.FLUID_REGISTRY, new ResourceLocation("tfc:curdled_milk")), 500)
-                .setEnergy(500)
-                .build(consumer, new ResourceLocation("htfc_subsidiaries", "curd_separator/milk_curd"));
-        CurdSeparatorRecipeBuilder.builder(new ItemStack(ForgeRegistries.ITEMS.getValue(new ResourceLocation("firmalife:food/goat_curd"))))
-                .addInput(new TagKey<Fluid>(Registry.FLUID_REGISTRY, new ResourceLocation("firmalife:curdled_goat_milk")), 500)
-                .setEnergy(500)
-                .build(consumer, new ResourceLocation("htfc_subsidiaries", "curd_separator/goat_curd"));
-        CurdSeparatorRecipeBuilder.builder(new ItemStack(ForgeRegistries.ITEMS.getValue(new ResourceLocation("firmalife:food/yak_curd"))))
-                .addInput(new TagKey<Fluid>(Registry.FLUID_REGISTRY, new ResourceLocation("firmalife:curdled_yak_milk")), 500)
-                .setEnergy(500)
-                .build(consumer, new ResourceLocation("htfc_subsidiaries", "curd_separator/yak_curd"));
 
         // cream
         RefineryRecipeBuilder.builder(new FluidStack(ForgeRegistries.FLUIDS.getValue(new ResourceLocation("firmalife:cream")).defaultFluidState().getType(), 100))

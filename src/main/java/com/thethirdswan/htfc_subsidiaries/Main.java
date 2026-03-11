@@ -2,8 +2,6 @@ package com.thethirdswan.htfc_subsidiaries;
 
 import com.mojang.logging.LogUtils;
 
-import com.thethirdswan.htfc_subsidiaries.blocks.multiblocks.HTFCSMultiblocks;
-import com.thethirdswan.htfc_subsidiaries.client.ClientEvents;
 import com.thethirdswan.htfc_subsidiaries.pnc.PNCUpgradesSetup;
 import com.thethirdswan.htfc_subsidiaries.pnc.UpgradeHandlers;
 import com.thethirdswan.htfc_subsidiaries.setup.*;
@@ -32,17 +30,8 @@ public class Main {
 
     public Main() {
         LOGGER.info("Starting HTFC Subsidiaries");
-        HTFCSMultiblocks.forceLoad();
-        LOGGER.info("Pre-Loaded Multiblocks");
-        HTFCSBlocks.init();
-        LOGGER.info("Initialized Blocks");
         HTFCSItems.init();
         LOGGER.info("Registrate Initialization");
-        HTFCSBlockEntities.init();
-        LOGGER.info("Block Entity Initialization");
-        HTFCSContainers.init();
-        ClientEvents.init();
-        RecipeSerializers.init();
 
         // Register the setup method for modloading
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
@@ -58,7 +47,6 @@ public class Main {
 
     private void setup(final FMLCommonSetupEvent event) {
         UpgradeHandlers.init();
-        HTFCSMultiblocks.init();
         LOGGER.info("Multiblock Initialization");
         event.enqueueWork(PNCUpgradesSetup::init);
     }

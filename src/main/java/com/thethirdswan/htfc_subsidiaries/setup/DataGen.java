@@ -1,7 +1,6 @@
 package com.thethirdswan.htfc_subsidiaries.setup;
 import blusunrize.immersiveengineering.common.blocks.multiblocks.StaticTemplateManager;
 import com.thethirdswan.htfc_subsidiaries.api.ItemHeatProvider;
-import com.thethirdswan.htfc_subsidiaries.data.MultiblockStates;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -27,7 +26,6 @@ public class DataGen {
         }
         if (event.includeClient()) {
 //            generator.addProvider(new TutBlockStates(generator, event.getExistingFileHelper()));
-            generator.addProvider(new MultiblockStates(generator, "htfc_subsidiaries", event.getExistingFileHelper()));
             generator.addProvider(new HTFCSItemModels(generator, event.getExistingFileHelper()));
             generator.addProvider(new HTFCSLanguageProviders(generator, "en_us"));
         }

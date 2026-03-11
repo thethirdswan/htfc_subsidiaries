@@ -47,13 +47,6 @@ public class HTFCSItemTags extends ItemTagsProvider {
 	public static final TagKey<Item> CHEESECLOTH = TagKey.create(Registry.ITEM_REGISTRY,
 			new ResourceLocation("forge", "cheesecloth"));
 
-	public static final TagKey<Item> MILK_CURD = TagKey.create(Registry.ITEM_REGISTRY,
-			new ResourceLocation("forge", "curds/milk"));
-	public static final TagKey<Item> GOAT_CURD = TagKey.create(Registry.ITEM_REGISTRY,
-			new ResourceLocation("forge", "curds/goat_milk"));
-	public static final TagKey<Item> YAK_CURD = TagKey.create(Registry.ITEM_REGISTRY,
-			new ResourceLocation("forge", "curds/yak_milk"));
-
 	@Override
 	protected void addTags() {
 		tag(PNC_UPGRADES).add(HTFCSItems.TEMPERATURE_REGULATOR_UPGRADE.get());
@@ -74,10 +67,6 @@ public class HTFCSItemTags extends ItemTagsProvider {
 		tag(SPINDLES).add(TFCItems.SPINDLE.get());
 
 		tag(CHEESECLOTH).add(FLItems.CHEESECLOTH.get());
-
-		tag(MILK_CURD).add(Objects.requireNonNull(ForgeRegistries.ITEMS.getValue(new ResourceLocation("firmalife", "food/milk_curd"))));
-		tag(GOAT_CURD).add(Objects.requireNonNull(ForgeRegistries.ITEMS.getValue(new ResourceLocation("firmalife", "food/goat_curd"))));
-		tag(YAK_CURD).add(Objects.requireNonNull(ForgeRegistries.ITEMS.getValue(new ResourceLocation("firmalife", "food/yak_curd"))));
 	}
 	
 	@Override
